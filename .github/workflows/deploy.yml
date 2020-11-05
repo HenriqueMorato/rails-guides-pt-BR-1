@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          #      - name: Install dependencies
+          #        run: git submodule update --init && bundle install
+          #      - name: Generate guides files
+          #        run: rake assets:precompile
+      - name: Setup
+        run: |
+          #    git config user.name "GitHub Actions Bot"
+          #git config user.email "<>"
+          echo ${{ github.event.pull_request.merged }}
+          echo "===="
+          echo $GITHUB_REF
+          echo "===="
+          echo ${{ github.event.number }}
+          echo "===="
+          echo ${{ github.event.issue.number }}
+          echo "===="
+          #PR=$(curl https://api.github.com/search/issues?q=${{ github.event.workflow_run.head_sha  }} |
+          #grep -Po "(?<=${{ github.event.workflow_run.repository.full_name  }}\/pulls\/)\d*" | head -1)
+          #echo "PR=$PR" >> $GITHUB_ENV
+          #echo "===="
+          #echo $PR
+          #      - name: commit site changes
+          #        run: |
+          #          git checkout -b site
+          #          git add site/
+          #          git commit -m "Build from action ${GITHUB_SHA}"
+          #          git push origin site --force
+          #      - name: Comment on merged pull request
+          #        run: bin/comment_pull_request
+          #        env:
+          #          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN   }}
