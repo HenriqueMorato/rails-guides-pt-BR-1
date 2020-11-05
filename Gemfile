@@ -6,6 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'activesupport', '~> 6.0.3', '>= 6.0.3.3'
 gem 'actionpack', '~> 6.0.3', '>= 6.0.3.3'
+gem 'faraday'
+gem 'faraday_middleware'
 gem 'execjs'
 gem "kindlerb", "~> 1.2.0"
 gem "rake", ">= 11.1"

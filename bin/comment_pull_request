@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'faraday'
+require 'faraday_middleware'
+
+url = 'https://api.github.com/repos/HenriqueMorato/rails-guides-pt-BR-1/issues'
+
+puts '====='
+puts ENV['PR_NUMBER']
+puts '====='
+connection = Faraday.new(url: url) do |faraday|
+  faraday.headers['Accept'] = 'application/vnd.github.squirrel-girl-preview'
+  faraday.headers['Authorization'] = "token #{ENV['GH_PERSONAL_ACCESS_TOKEN']}"
+  faraday.headers['Content-Type'] = 'application/json'
+  faraday.response :json, parser_options: { symbolize_names: true },
+    content_type: /\bjson$/
+  faraday.adapter :net_http
+end
+
+puts connection.post("#{ENV['PR_NUMBER']}/comments",
+                     '{ "body": "Já está disponível no Guia Rails :tada: :rocket:" }').body
+puts connection.post("#{ENV['PR_NUMBER']}/labels", '{ "labels": [":rocket:"] }').body
