@@ -302,18 +302,18 @@
 <span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
 <span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-80a337398a7c3474ef957df12e0ab824">rails new myapp
+<textarea class="clipboard-content" id="clipboard-8822748bb22a6f58238738d9b56982e0">rails new myapp
 cd myapp
 rails generate
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-80a337398a7c3474ef957df12e0ab824">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-8822748bb22a6f58238738d9b56982e0">Copiar</button>
 </div>
 <p>You will get a list of all generators that comes with Rails. If you need a detailed description of the helper generator, for example, you can simply do:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate helper <span class="nt">--help</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d20c655e52edb0a45cb300d548498168">rails generate helper --help
+<textarea class="clipboard-content" id="clipboard-4c2508edf1c70310fe2aa553a7c793f0">rails generate helper --help
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d20c655e52edb0a45cb300d548498168">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-4c2508edf1c70310fe2aa553a7c793f0">Copiar</button>
 </div>
 <h3 id="creating-your-first-generator"><a class="anchorlink" href="#creating-your-first-generator">2 Creating Your First Generator</a></h3><p>Since Rails 3.0, generators are built on top of <a href="https://github.com/erikhuda/thor">Thor</a>. Thor provides powerful options for parsing and a great API for manipulating files. For instance, let's build a generator that creates an initializer file named <code>initializer.rb</code> inside <code>config/initializers</code>.</p><p>The first step is to create a file at <code>lib/generators/initializer_generator.rb</code> with the following content:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">Base</span>
@@ -322,27 +322,27 @@ rails generate
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-dd7a6f77b277c5d4aae60a1c299e7f80">class InitializerGenerator &lt; Rails::Generators::Base
+<textarea class="clipboard-content" id="clipboard-1784255f08668375224e29707b71fc8f">class InitializerGenerator &lt; Rails::Generators::Base
   def create_initializer_file
     create_file "config/initializers/initializer.rb", "# Add initialization content here"
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-dd7a6f77b277c5d4aae60a1c299e7f80">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-1784255f08668375224e29707b71fc8f">Copiar</button>
 </div>
 <div class="note"><p><code>create_file</code> is a method provided by <code>Thor::Actions</code>. Documentation for <code>create_file</code> and other Thor methods can be found in <a href="https://rdoc.info/github/erikhuda/thor/master/Thor/Actions.html">Thor's documentation</a></p></div><p>Our new generator is quite simple: it inherits from <code>Rails::Generators::Base</code> and has one method definition. When a generator is invoked, each public method in the generator is executed sequentially in the order that it is defined. Finally, we invoke the <code>create_file</code> method that will create a file at the given destination with the given content. If you are familiar with the Rails Application Templates API, you'll feel right at home with the new generators API.</p><p>To invoke our new generator, we just need to do:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate initializer
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9dbbbca7f46d1d9bb4aeed6fc594fa64">rails generate initializer
+<textarea class="clipboard-content" id="clipboard-776fb9302129930b26e631def1796f46">rails generate initializer
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9dbbbca7f46d1d9bb4aeed6fc594fa64">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-776fb9302129930b26e631def1796f46">Copiar</button>
 </div>
 <p>Before we go on, let's see our brand new generator description:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate initializer <span class="nt">--help</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-618c53bad5a88c96269cf4d6e104e50d">rails generate initializer --help
+<textarea class="clipboard-content" id="clipboard-eb9e3601d442085d0d78a969efc6db18">rails generate initializer --help
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-618c53bad5a88c96269cf4d6e104e50d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-eb9e3601d442085d0d78a969efc6db18">Copiar</button>
 </div>
 <p>Rails is usually able to generate good descriptions if a generator is namespaced, as <code>ActiveRecord::Generators::ModelGenerator</code>, but not in this particular case. We can solve this problem in two ways. The first one is calling <code>desc</code> inside our generator:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">Base</span>
@@ -352,14 +352,14 @@ end
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-40af6c36d676178e260c524ed8ea36fb">class InitializerGenerator &lt; Rails::Generators::Base
+<textarea class="clipboard-content" id="clipboard-567421204bcb315056dec00ef6919324">class InitializerGenerator &lt; Rails::Generators::Base
   desc "This generator creates an initializer file at config/initializers"
   def create_initializer_file
     create_file "config/initializers/initializer.rb", "# Add initialization content here"
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-40af6c36d676178e260c524ed8ea36fb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-567421204bcb315056dec00ef6919324">Copiar</button>
 </div>
 <p>Now we can see the new description by invoking <code>--help</code> on the new generator. The second way to add a description is by creating a file named <code>USAGE</code> in the same directory as our generator. We are going to do that in the next step.</p><h3 id="creating-generators-with-generators"><a class="anchorlink" href="#creating-generators-with-generators">3 Creating Generators with Generators</a></h3><p>Generators themselves have a generator:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate generator initializer
@@ -370,36 +370,36 @@ end
       invoke  test_unit
       create    test/lib/generators/initializer_generator_test.rb
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-d0b63dbd1fd16792ebd0b3a651540fbf">rails generate generator initializer
+<textarea class="clipboard-content" id="clipboard-9b236e9a55356ce8af832d934f58b5dd">rails generate generator initializer
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d0b63dbd1fd16792ebd0b3a651540fbf">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9b236e9a55356ce8af832d934f58b5dd">Copiar</button>
 </div>
 <p>This is the generator just created:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
   <span class="n">source_root</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'templates'</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-30bad49dec82537f55bd46e95b5faaba">class InitializerGenerator &lt; Rails::Generators::NamedBase
+<textarea class="clipboard-content" id="clipboard-970732509c7d22fb0aaa119d577fe689">class InitializerGenerator &lt; Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-30bad49dec82537f55bd46e95b5faaba">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-970732509c7d22fb0aaa119d577fe689">Copiar</button>
 </div>
 <p>First, notice that we are inheriting from <code>Rails::Generators::NamedBase</code> instead of <code>Rails::Generators::Base</code>. This means that our generator expects at least one argument, which will be the name of the initializer, and will be available in our code in the variable <code>name</code>.</p><p>We can see that by invoking the description of this new generator (don't forget to delete the old generator file):</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate initializer <span class="nt">--help</span>
 <span class="go">Usage:
   rails generate initializer NAME [options]
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-2ed49b999f50f68d248dfd8d5797600f">rails generate initializer --help
+<textarea class="clipboard-content" id="clipboard-443b561c16d8c3579c2100132e6a0895">rails generate initializer --help
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-2ed49b999f50f68d248dfd8d5797600f">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-443b561c16d8c3579c2100132e6a0895">Copiar</button>
 </div>
 <p>We can also see that our new generator has a class method called <code>source_root</code>. This method points to where our generator templates will be placed, if any, and by default it points to the created directory <code>lib/generators/initializer/templates</code>.</p><p>In order to understand what a generator template means, let's create the file <code>lib/generators/initializer/templates/initializer.rb</code> with the following content:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="c1"># Add initialization content here</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-795a14eccb112574c8eb73fb3a965cc6"># Add initialization content here
+<textarea class="clipboard-content" id="clipboard-7ae04303584c5a40af17b436a78f27e3"># Add initialization content here
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-795a14eccb112574c8eb73fb3a965cc6">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-7ae04303584c5a40af17b436a78f27e3">Copiar</button>
 </div>
 <p>And now let's change the generator to copy this template when invoked:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">InitializerGenerator</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Generators</span><span class="o">::</span><span class="no">NamedBase</span>
@@ -410,7 +410,7 @@ end
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-25744a5c6f1511d6f3968ba9bca221cd">class InitializerGenerator &lt; Rails::Generators::NamedBase
+<textarea class="clipboard-content" id="clipboard-f5bd2fa7679566439db365cf70a71466">class InitializerGenerator &lt; Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 
   def copy_initializer_file
@@ -418,14 +418,14 @@ end
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-25744a5c6f1511d6f3968ba9bca221cd">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f5bd2fa7679566439db365cf70a71466">Copiar</button>
 </div>
 <p>And let's execute our generator:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate initializer core_extensions
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-325cb1626df3ada00e87f4db48c62ee7">rails generate initializer core_extensions
+<textarea class="clipboard-content" id="clipboard-9350f1ccf03a55c66290771a302dfb55">rails generate initializer core_extensions
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-325cb1626df3ada00e87f4db48c62ee7">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9350f1ccf03a55c66290771a302dfb55">Copiar</button>
 </div>
 <p>We can see that now an initializer named core_extensions was created at <code>config/initializers/core_extensions.rb</code> with the contents of our template. That means that <code>copy_file</code> copied a file in our source root to the destination path we gave. The method <code>file_name</code> is automatically created when we inherit from <code>Rails::Generators::NamedBase</code>.</p><p>The methods that are available for generators are covered in the <a href="#generator-methods">final section</a> of this guide.</p><h3 id="generators-lookup"><a class="anchorlink" href="#generators-lookup">4 Generators Lookup</a></h3><p>When you run <code>rails generate initializer core_extensions</code> Rails requires these files in turn until one is found:</p><div class="code_container">
 <pre><code class="highlight console"><span class="go">rails/generators/initializer/initializer_generator.rb
@@ -433,8 +433,8 @@ generators/initializer/initializer_generator.rb
 rails/generators/initializer_generator.rb
 generators/initializer_generator.rb
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-a6c0a87c7833503fc2e5227bebd762d2"></textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a6c0a87c7833503fc2e5227bebd762d2">Copiar</button>
+<textarea class="clipboard-content" id="clipboard-34c6d6e59119264f4a3c9c824d30573b"></textarea>
+<button class="clipboard-button" data-clipboard-target="#clipboard-34c6d6e59119264f4a3c9c824d30573b">Copiar</button>
 </div>
 <p>If none is found you get an error message.</p><div class="info"><p>The examples above put files under the application's <code>lib</code> because said directory belongs to <code>$LOAD_PATH</code>.</p></div><h3 id="customizing-your-workflow"><a class="anchorlink" href="#customizing-your-workflow">5 Customizing Your Workflow</a></h3><p>Rails own generators are flexible enough to let you customize scaffolding. They can be configured in <code>config/application.rb</code>, these are some defaults:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
@@ -443,13 +443,13 @@ generators/initializer_generator.rb
   <span class="n">g</span><span class="p">.</span><span class="nf">test_framework</span>  <span class="ss">:test_unit</span><span class="p">,</span> <span class="ss">fixture: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-fd0d671e6f762abab09f8d8240d72a22">config.generators do |g|
+<textarea class="clipboard-content" id="clipboard-9502137b094ff6e2d741e0fff5ae4177">config.generators do |g|
   g.orm             :active_record
   g.template_engine :erb
   g.test_framework  :test_unit, fixture: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-fd0d671e6f762abab09f8d8240d72a22">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9502137b094ff6e2d741e0fff5ae4177">Copiar</button>
 </div>
 <p>Before we customize our workflow, let's first see what our scaffold looks like:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate scaffold User name:string
@@ -486,20 +486,20 @@ end
       invoke  scss
       create    app/assets/stylesheets/scaffolds.scss
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-748f5ebc060dbb313fb41f7735e5ba9e">rails generate scaffold User name:string
+<textarea class="clipboard-content" id="clipboard-fbd17384ccc92fe41307cc7eadfd892a">rails generate scaffold User name:string
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-748f5ebc060dbb313fb41f7735e5ba9e">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fbd17384ccc92fe41307cc7eadfd892a">Copiar</button>
 </div>
 <p>Looking at this output, it's easy to understand how generators work in Rails 3.0 and above. The scaffold generator doesn't actually generate anything, it just invokes others to do the work. This allows us to add/replace/remove any of those invocations. For instance, the scaffold generator invokes the scaffold_controller generator, which invokes erb, test_unit and helper generators. Since each generator has a single responsibility, they are easy to reuse, avoiding code duplication.</p><p>If we want to avoid generating the default <code>app/assets/stylesheets/scaffolds.scss</code> file when scaffolding a new resource we can disable <code>scaffold_stylesheet</code>:</p><div class="code_container">
 <pre><code class="highlight ruby">  <span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
     <span class="n">g</span><span class="p">.</span><span class="nf">scaffold_stylesheet</span> <span class="kp">false</span>
   <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-df3b23d5f52d8a634cbbf3017c1aa6cf">  config.generators do |g|
+<textarea class="clipboard-content" id="clipboard-6e338490fb13c98125177e833f3e9f34">  config.generators do |g|
     g.scaffold_stylesheet false
   end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-df3b23d5f52d8a634cbbf3017c1aa6cf">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-6e338490fb13c98125177e833f3e9f34">Copiar</button>
 </div>
 <p>The next customization on the workflow will be to stop generating stylesheet and test fixture files for scaffolds altogether. We can achieve that by changing our configuration to the following:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
@@ -509,14 +509,14 @@ end
   <span class="n">g</span><span class="p">.</span><span class="nf">stylesheets</span>     <span class="kp">false</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b26a91697a3f366d943fbf5196c30524">config.generators do |g|
+<textarea class="clipboard-content" id="clipboard-f9e56414c66218ae00aa139fc0ee1ce2">config.generators do |g|
   g.orm             :active_record
   g.template_engine :erb
   g.test_framework  :test_unit, fixture: false
   g.stylesheets     false
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b26a91697a3f366d943fbf5196c30524">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f9e56414c66218ae00aa139fc0ee1ce2">Copiar</button>
 </div>
 <p>If we generate another resource with the scaffold generator, we can see that stylesheet, JavaScript, and fixture files are not created anymore. If you want to customize it further, for example to use DataMapper and RSpec instead of Active Record and TestUnit, it's just a matter of adding their gems to your application and configuring your generators.</p><p>To demonstrate this, we are going to create a new helper generator that simply adds some instance variable readers. First, we create a generator within the rails namespace, as this is where rails searches for generators used as hooks:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate generator <span class="nb">rails</span>/my_helper
@@ -527,9 +527,9 @@ end
       invoke  test_unit
       create    test/lib/generators/rails/my_helper_generator_test.rb
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-7cb47edadbaf86fdda54ef231fcc802a">rails generate generator rails/my_helper
+<textarea class="clipboard-content" id="clipboard-028152fdb9220889c022e2797d4aea41">rails generate generator rails/my_helper
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-7cb47edadbaf86fdda54ef231fcc802a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-028152fdb9220889c022e2797d4aea41">Copiar</button>
 </div>
 <p>After that, we can delete both the <code>templates</code> directory and the <code>source_root</code>
 class method call from our new generator, because we are not going to need them.
@@ -545,7 +545,7 @@ end
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-86a86be372275bff56a19c28b325937b"># lib/generators/rails/my_helper/my_helper_generator.rb
+<textarea class="clipboard-content" id="clipboard-206418f6bd8a0c9516560387657640bd"># lib/generators/rails/my_helper/my_helper_generator.rb
 class Rails::MyHelperGenerator &lt; Rails::Generators::NamedBase
   def create_helper_file
     create_file "app/helpers/#{file_name}_helper.rb", &lt;&lt;-FILE
@@ -556,26 +556,26 @@ end
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-86a86be372275bff56a19c28b325937b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-206418f6bd8a0c9516560387657640bd">Copiar</button>
 </div>
 <p>We can try out our new generator by creating a helper for products:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate my_helper products
 <span class="go">      create  app/helpers/products_helper.rb
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-8f80208b6941ee702f79aecbe7c26a4a">rails generate my_helper products
+<textarea class="clipboard-content" id="clipboard-3059dd143c52e12a46532a4a26eecd1a">rails generate my_helper products
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8f80208b6941ee702f79aecbe7c26a4a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3059dd143c52e12a46532a4a26eecd1a">Copiar</button>
 </div>
 <p>And it will generate the following helper file in <code>app/helpers</code>:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">module</span> <span class="nn">ProductsHelper</span>
   <span class="nb">attr_reader</span> <span class="ss">:products</span><span class="p">,</span> <span class="ss">:product</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-8595297bebb9a9237466b812b1f20672">module ProductsHelper
+<textarea class="clipboard-content" id="clipboard-9fb6b71f215534ba8992713bfe5b38e9">module ProductsHelper
   attr_reader :products, :product
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8595297bebb9a9237466b812b1f20672">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9fb6b71f215534ba8992713bfe5b38e9">Copiar</button>
 </div>
 <p>Which is what we expected. We can now tell scaffold to use our new helper generator by editing <code>config/application.rb</code> once again:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
@@ -586,7 +586,7 @@ end
   <span class="n">g</span><span class="p">.</span><span class="nf">helper</span>          <span class="ss">:my_helper</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-0e141b35e7db7dd033712acaa7ae38d7">config.generators do |g|
+<textarea class="clipboard-content" id="clipboard-8e71bc1dd07ac1664f66a9280a42a2d1">config.generators do |g|
   g.orm             :active_record
   g.template_engine :erb
   g.test_framework  :test_unit, fixture: false
@@ -594,7 +594,7 @@ end
   g.helper          :my_helper
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0e141b35e7db7dd033712acaa7ae38d7">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-8e71bc1dd07ac1664f66a9280a42a2d1">Copiar</button>
 </div>
 <p>and see it in action when invoking the generator:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate scaffold Article body:text
@@ -602,9 +602,9 @@ end
       invoke    my_helper
       create      app/helpers/articles_helper.rb
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-e4c541484668cf9ba4e8aa1a78cdb33b">rails generate scaffold Article body:text
+<textarea class="clipboard-content" id="clipboard-0cd16abd897c16f07666315292acba0f">rails generate scaffold Article body:text
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-e4c541484668cf9ba4e8aa1a78cdb33b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0cd16abd897c16f07666315292acba0f">Copiar</button>
 </div>
 <p>We can notice on the output that our new helper was invoked instead of the Rails default. However one thing is missing, which is tests for our new generator and to do that, we are going to reuse old helpers test generators.</p><p>Since Rails 3.0, this is easy to do due to the hooks concept. Our new helper does not need to be focused in one specific test framework, it can simply provide a hook and a test framework just needs to implement this hook in order to be compatible.</p><p>To do that, we can change the generator this way:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="c1"># lib/generators/rails/my_helper/my_helper_generator.rb</span>
@@ -620,7 +620,7 @@ end
   <span class="n">hook_for</span> <span class="ss">:test_framework</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d2cc29dc684abff162de2587b6cb1950"># lib/generators/rails/my_helper/my_helper_generator.rb
+<textarea class="clipboard-content" id="clipboard-441cac8b34d6af343bc9cbcf36576f57"># lib/generators/rails/my_helper/my_helper_generator.rb
 class Rails::MyHelperGenerator &lt; Rails::Generators::NamedBase
   def create_helper_file
     create_file "app/helpers/#{file_name}_helper.rb", &lt;&lt;-FILE
@@ -633,27 +633,27 @@ end
   hook_for :test_framework
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d2cc29dc684abff162de2587b6cb1950">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-441cac8b34d6af343bc9cbcf36576f57">Copiar</button>
 </div>
 <p>Now, when the helper generator is invoked and TestUnit is configured as the test framework, it will try to invoke both <code>Rails::TestUnitGenerator</code> and <code>TestUnit::MyHelperGenerator</code>. Since none of those are defined, we can tell our generator to invoke <code>TestUnit::Generators::HelperGenerator</code> instead, which is defined since it's a Rails generator. To do that, we just need to add:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="c1"># Search for :helper instead of :my_helper</span>
 <span class="n">hook_for</span> <span class="ss">:test_framework</span><span class="p">,</span> <span class="ss">as: :helper</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-5be703f635c25ac75277c72f0fbada03"># Search for :helper instead of :my_helper
+<textarea class="clipboard-content" id="clipboard-fa051c95733f3f24b8bc8e718d2d8ddc"># Search for :helper instead of :my_helper
 hook_for :test_framework, as: :helper
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-5be703f635c25ac75277c72f0fbada03">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fa051c95733f3f24b8bc8e718d2d8ddc">Copiar</button>
 </div>
 <p>And now you can re-run scaffold for another resource and see it generating tests as well!</p><h3 id="customizing-your-workflow-by-changing-generators-templates"><a class="anchorlink" href="#customizing-your-workflow-by-changing-generators-templates">6 Customizing Your Workflow by Changing Generators Templates</a></h3><p>In the step above we simply wanted to add a line to the generated helper, without adding any extra functionality. There is a simpler way to do that, and it's by replacing the templates of already existing generators, in that case <code>Rails::Generators::HelperGenerator</code>.</p><p>In Rails 3.0 and above, generators don't just look in the source root for templates, they also search for templates in other paths. And one of them is <code>lib/templates</code>. Since we want to customize <code>Rails::Generators::HelperGenerator</code>, we can do that by simply making a template copy inside <code>lib/templates/rails/helper</code> with the name <code>helper.rb</code>. So let's create that file with the following content:</p><div class="code_container">
 <pre><code class="highlight erb">module <span class="cp">&lt;%=</span> <span class="n">class_name</span> <span class="cp">%&gt;</span>Helper
   attr_reader :<span class="cp">&lt;%=</span> <span class="n">plural_name</span> <span class="cp">%&gt;</span>, :<span class="cp">&lt;%=</span> <span class="n">plural_name</span><span class="p">.</span><span class="nf">singularize</span> <span class="cp">%&gt;</span>
 end
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-25f485bb44056446092df0df43a35fe2">module &lt;%= class_name %&gt;Helper
+<textarea class="clipboard-content" id="clipboard-ba5c7d01069b5aac1356d1f0dc9efebb">module &lt;%= class_name %&gt;Helper
   attr_reader :&lt;%= plural_name %&gt;, :&lt;%= plural_name.singularize %&gt;
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-25f485bb44056446092df0df43a35fe2">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ba5c7d01069b5aac1356d1f0dc9efebb">Copiar</button>
 </div>
 <p>and revert the last change in <code>config/application.rb</code>:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
@@ -663,30 +663,30 @@ end
   <span class="n">g</span><span class="p">.</span><span class="nf">stylesheets</span>     <span class="kp">false</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c8476ebe9dba874020b5f941e3e0048b">config.generators do |g|
+<textarea class="clipboard-content" id="clipboard-e2f0881ddc431d7b908c63353c5657d7">config.generators do |g|
   g.orm             :active_record
   g.template_engine :erb
   g.test_framework  :test_unit, fixture: false
   g.stylesheets     false
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c8476ebe9dba874020b5f941e3e0048b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e2f0881ddc431d7b908c63353c5657d7">Copiar</button>
 </div>
 <p>If you generate another resource, you can see that we get exactly the same result! This is useful if you want to customize your scaffold templates and/or layout by just creating <code>edit.html.erb</code>, <code>index.html.erb</code> and so on inside <code>lib/templates/erb/scaffold</code>.</p><p>Scaffold templates in Rails frequently use ERB tags; these tags need to be
 escaped so that the generated output is valid ERB code.</p><p>For example, the following escaped ERB tag would be needed in the template
 (note the extra <code>%</code>)...</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="o">&lt;</span><span class="sx">%%= stylesheet_include_tag :application %</span><span class="o">&gt;</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-a884c9455023c9f0eee69f4de6c298ac">&lt;%%= stylesheet_include_tag :application %&gt;
+<textarea class="clipboard-content" id="clipboard-2a3a0e32f9955102c079914ba2735ce2">&lt;%%= stylesheet_include_tag :application %&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a884c9455023c9f0eee69f4de6c298ac">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-2a3a0e32f9955102c079914ba2735ce2">Copiar</button>
 </div>
 <p>...to generate the following output:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="o">&lt;</span><span class="sx">%= stylesheet_include_tag :application %&gt;
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-7601bb256e7db407b9327be6c7bfe621">&lt;%= stylesheet_include_tag :application %&gt;
+<textarea class="clipboard-content" id="clipboard-321e7f18e01e841a393218eef7187a93">&lt;%= stylesheet_include_tag :application %&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-7601bb256e7db407b9327be6c7bfe621">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-321e7f18e01e841a393218eef7187a93">Copiar</button>
 </div>
 <h3 id="adding-generators-fallbacks"><a class="anchorlink" href="#adding-generators-fallbacks">7 Adding Generators Fallbacks</a></h3><p>One last feature about generators which is quite useful for plugin generators is fallbacks. For example, imagine that you want to add a feature on top of TestUnit like <a href="https://github.com/thoughtbot/shoulda">shoulda</a> does. Since TestUnit already implements all generators required by Rails and shoulda just wants to overwrite part of it, there is no need for shoulda to reimplement some generators again, it can simply tell Rails to use a <code>TestUnit</code> generator if none was found under the <code>Shoulda</code> namespace.</p><p>We can easily simulate this behavior by changing our <code>config/application.rb</code> once again:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">generators</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
@@ -699,7 +699,7 @@ escaped so that the generated output is valid ERB code.</p><p>For example, the f
   <span class="n">g</span><span class="p">.</span><span class="nf">fallbacks</span><span class="p">[</span><span class="ss">:shoulda</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:test_unit</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c1cd19af9549e09aee0c81112c1c670f">config.generators do |g|
+<textarea class="clipboard-content" id="clipboard-ec56397dc4285f59868f7bd4c143d34e">config.generators do |g|
   g.orm             :active_record
   g.template_engine :erb
   g.test_framework  :shoulda, fixture: false
@@ -709,7 +709,7 @@ escaped so that the generated output is valid ERB code.</p><p>For example, the f
   g.fallbacks[:shoulda] = :test_unit
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c1cd19af9549e09aee0c81112c1c670f">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ec56397dc4285f59868f7bd4c143d34e">Copiar</button>
 </div>
 <p>Now, if you create a Comment scaffold, you will see that the shoulda generators are being invoked, and at the end, they are just falling back to TestUnit generators:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>generate scaffold Comment body:text
@@ -744,9 +744,9 @@ end
       invoke    scss
       create    app/assets/stylesheets/scaffolds.scss
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-b966284005adfe046fefacb8fe60a726">rails generate scaffold Comment body:text
+<textarea class="clipboard-content" id="clipboard-fed72bf1a87c9b426a1b046ee8f846a2">rails generate scaffold Comment body:text
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b966284005adfe046fefacb8fe60a726">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fed72bf1a87c9b426a1b046ee8f846a2">Copiar</button>
 </div>
 <p>Fallbacks allow your generators to have a single responsibility, increasing code reuse and reducing the amount of duplication.</p><h3 id="application-templates"><a class="anchorlink" href="#application-templates">8 Application Templates</a></h3><p>Now that you've seen how generators can be used <em>inside</em> an application, did you know they can also be used to <em>generate</em> applications too? This kind of generator is referred to as a "template". This is a brief overview of the Templates API. For detailed documentation see the <a href="rails_application_templates.html">Rails Application Templates guide</a>.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"rspec-rails"</span><span class="p">,</span> <span class="ss">group: </span><span class="s2">"test"</span>
@@ -760,7 +760,7 @@ end
   <span class="n">generate</span> <span class="s2">"devise"</span><span class="p">,</span> <span class="n">model_name</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-afa9289c6bbb6a3a21d0d9df47fdbdbf">gem "rspec-rails", group: "test"
+<textarea class="clipboard-content" id="clipboard-6797a7312de11a48b744effe418c4dda">gem "rspec-rails", group: "test"
 gem "cucumber-rails", group: "test"
 
 if yes?("Would you like to install Devise?")
@@ -771,50 +771,50 @@ if yes?("Would you like to install Devise?")
   generate "devise", model_name
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-afa9289c6bbb6a3a21d0d9df47fdbdbf">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-6797a7312de11a48b744effe418c4dda">Copiar</button>
 </div>
 <p>In the above template we specify that the application relies on the <code>rspec-rails</code> and <code>cucumber-rails</code> gem so these two will be added to the <code>test</code> group in the <code>Gemfile</code>. Then we pose a question to the user about whether or not they would like to install Devise. If the user replies "y" or "yes" to this question, then the template will add Devise to the <code>Gemfile</code> outside of any group and then runs the <code>devise:install</code> generator. This template then takes the users input and runs the <code>devise</code> generator, with the user's answer from the last question being passed to this generator.</p><p>Imagine that this template was in a file called <code>template.rb</code>. We can use it to modify the outcome of the <code>rails new</code> command by using the <code>-m</code> option and passing in the filename:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new thud <span class="nt">-m</span> template.rb
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b456bc70f814a3774e894628df261ac3">rails new thud -m template.rb
+<textarea class="clipboard-content" id="clipboard-c883ab3a67e3c309bc26c5dc1a525f8b">rails new thud -m template.rb
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b456bc70f814a3774e894628df261ac3">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-c883ab3a67e3c309bc26c5dc1a525f8b">Copiar</button>
 </div>
 <p>This command will generate the <code>Thud</code> application, and then apply the template to the generated output.</p><p>Templates don't have to be stored on the local system, the <code>-m</code> option also supports online templates:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new thud <span class="nt">-m</span> https://gist.github.com/radar/722911/raw/
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-de60d30237131c789a77e22d63ca91fb">rails new thud -m https://gist.github.com/radar/722911/raw/
+<textarea class="clipboard-content" id="clipboard-0f7ab9e68a76c3c3e2b11b9425fa6a27">rails new thud -m https://gist.github.com/radar/722911/raw/
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-de60d30237131c789a77e22d63ca91fb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0f7ab9e68a76c3c3e2b11b9425fa6a27">Copiar</button>
 </div>
 <p>Whilst the final section of this guide doesn't cover how to generate the most awesome template known to man, it will take you through the methods available at your disposal so that you can develop it yourself. These same methods are also available for generators.</p><h3 id="adding-command-line-arguments"><a class="anchorlink" href="#adding-command-line-arguments">9 Adding Command Line Arguments</a></h3><p>Rails generators can be easily modified to accept custom command line arguments. This functionality comes from <a href="https://www.rubydoc.info/github/erikhuda/thor/master/Thor/Base/ClassMethods#class_option-instance_method">Thor</a>:</p><div class="code_container">
 <pre><code class="highlight plaintext">class_option :scope, type: :string, default: 'read_products'
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-cf67a0b44867515c55d0ccd6fa2c85e0">class_option :scope, type: :string, default: 'read_products'
+<textarea class="clipboard-content" id="clipboard-fbe65e61116ffa692c51170a489a42dd">class_option :scope, type: :string, default: 'read_products'
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-cf67a0b44867515c55d0ccd6fa2c85e0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fbe65e61116ffa692c51170a489a42dd">Copiar</button>
 </div>
 <p>Now our generator can be invoked as follows:</p><div class="code_container">
 <pre><code class="highlight console"><span class="go">rails generate initializer --scope write_products
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-a04606c0d9fa8d0f189f18696880d014"></textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a04606c0d9fa8d0f189f18696880d014">Copiar</button>
+<textarea class="clipboard-content" id="clipboard-fa7693247ccddd615253dca639544569"></textarea>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fa7693247ccddd615253dca639544569">Copiar</button>
 </div>
 <p>The command line arguments are accessed through the <code>options</code> method inside the generator class. e.g:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="vi">@scope</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">'scope'</span><span class="p">]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d0657ba0bb4ce1becf6fcb62a2d8aa9b">@scope = options['scope']
+<textarea class="clipboard-content" id="clipboard-bffef5937d5d3c916fae80c5ccaed5ea">@scope = options['scope']
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d0657ba0bb4ce1becf6fcb62a2d8aa9b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-bffef5937d5d3c916fae80c5ccaed5ea">Copiar</button>
 </div>
 <h3 id="generator-methods"><a class="anchorlink" href="#generator-methods">10 Generator methods</a></h3><p>The following are methods available for both generators and templates for Rails.</p><div class="note"><p>Methods provided by Thor are not covered this guide and can be found in <a href="https://rdoc.info/github/erikhuda/thor/master/Thor/Actions.html">Thor's documentation</a></p></div><h4 id="gem"><a class="anchorlink" href="#gem">10.1 <code>gem</code></a></h4><p>Specifies a gem dependency of the application.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"rspec"</span><span class="p">,</span> <span class="ss">group: </span><span class="s2">"test"</span><span class="p">,</span> <span class="ss">version: </span><span class="s2">"2.1.0"</span>
 <span class="n">gem</span> <span class="s2">"devise"</span><span class="p">,</span> <span class="s2">"1.1.5"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-817d0e43beadd6e6022b677226ebfcfb">gem "rspec", group: "test", version: "2.1.0"
+<textarea class="clipboard-content" id="clipboard-c94a85903a61197e851657b7503a12d4">gem "rspec", group: "test", version: "2.1.0"
 gem "devise", "1.1.5"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-817d0e43beadd6e6022b677226ebfcfb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-c94a85903a61197e851657b7503a12d4">Copiar</button>
 </div>
 <p>Available options are:</p>
 <ul>
@@ -828,45 +828,45 @@ gem "devise", "1.1.5"
 <p>Any additional options passed to this method are put on the end of the line:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"devise"</span><span class="p">,</span> <span class="ss">git: </span><span class="s2">"https://github.com/plataformatec/devise.git"</span><span class="p">,</span> <span class="ss">branch: </span><span class="s2">"master"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-df1d08c8fb08cac60e51f8839711cbef">gem "devise", git: "https://github.com/plataformatec/devise.git", branch: "master"
+<textarea class="clipboard-content" id="clipboard-559631cdcf39105c63f0505ae829ecb6">gem "devise", git: "https://github.com/plataformatec/devise.git", branch: "master"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-df1d08c8fb08cac60e51f8839711cbef">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-559631cdcf39105c63f0505ae829ecb6">Copiar</button>
 </div>
 <p>The above code will put the following line into <code>Gemfile</code>:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">gem</span> <span class="s2">"devise"</span><span class="p">,</span> <span class="ss">git: </span><span class="s2">"https://github.com/plataformatec/devise.git"</span><span class="p">,</span> <span class="ss">branch: </span><span class="s2">"master"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-a63f60f9901e88b04228b3e0a4552040">gem "devise", git: "https://github.com/plataformatec/devise.git", branch: "master"
+<textarea class="clipboard-content" id="clipboard-3a6894dc9a94af897c3bff1bf18d6a37">gem "devise", git: "https://github.com/plataformatec/devise.git", branch: "master"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a63f60f9901e88b04228b3e0a4552040">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3a6894dc9a94af897c3bff1bf18d6a37">Copiar</button>
 </div>
 <h4 id="gem-group"><a class="anchorlink" href="#gem-group">10.2 <code>gem_group</code></a></h4><p>Wraps gem entries inside a group:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">gem_group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
   <span class="n">gem</span> <span class="s2">"rspec-rails"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-5e4dff161075b0a3ff7b25bbf4129d32">gem_group :development, :test do
+<textarea class="clipboard-content" id="clipboard-0099b15ae5d557a8b94ff27299c9b42d">gem_group :development, :test do
   gem "rspec-rails"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-5e4dff161075b0a3ff7b25bbf4129d32">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0099b15ae5d557a8b94ff27299c9b42d">Copiar</button>
 </div>
 <h4 id="add-source"><a class="anchorlink" href="#add-source">10.3 <code>add_source</code></a></h4><p>Adds a specified source to <code>Gemfile</code>:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">add_source</span> <span class="s2">"http://gems.github.com"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9afc5dc8c12cac5c6530b0de559a76e6">add_source "http://gems.github.com"
+<textarea class="clipboard-content" id="clipboard-09bcdec98a705081ac0539dca66c9cfe">add_source "http://gems.github.com"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9afc5dc8c12cac5c6530b0de559a76e6">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-09bcdec98a705081ac0539dca66c9cfe">Copiar</button>
 </div>
 <p>This method also takes a block:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">add_source</span> <span class="s2">"http://gems.github.com"</span> <span class="k">do</span>
   <span class="n">gem</span> <span class="s2">"rspec-rails"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d6a9268649e3414697a867dc81d93c0b">add_source "http://gems.github.com" do
+<textarea class="clipboard-content" id="clipboard-104725508b5e6df59c443a789107fd84">add_source "http://gems.github.com" do
   gem "rspec-rails"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d6a9268649e3414697a867dc81d93c0b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-104725508b5e6df59c443a789107fd84">Copiar</button>
 </div>
 <h4 id="inject-into-file"><a class="anchorlink" href="#inject-into-file">10.4 <code>inject_into_file</code></a></h4><p>Injects a block of code into a defined position in your file.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">inject_into_file</span> <span class="s1">'name_of_file.rb'</span><span class="p">,</span> <span class="ss">after: </span><span class="s2">"#The code goes below this line. Don't forget the Line break at the end</span><span class="se">\n</span><span class="s2">"</span> <span class="k">do</span> <span class="o">&lt;&lt;-</span><span class="no">'RUBY'</span><span class="sh">
@@ -874,37 +874,37 @@ end
 </span><span class="no">RUBY</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-177eeb5a3f5f51a8dd0a604ef51eb0e1">inject_into_file 'name_of_file.rb', after: "#The code goes below this line. Don't forget the Line break at the end\n" do &lt;&lt;-'RUBY'
+<textarea class="clipboard-content" id="clipboard-16230aef9b7518869f9594aa82ad1671">inject_into_file 'name_of_file.rb', after: "#The code goes below this line. Don't forget the Line break at the end\n" do &lt;&lt;-'RUBY'
   puts "Hello World"
 RUBY
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-177eeb5a3f5f51a8dd0a604ef51eb0e1">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-16230aef9b7518869f9594aa82ad1671">Copiar</button>
 </div>
 <h4 id="gsub-file"><a class="anchorlink" href="#gsub-file">10.5 <code>gsub_file</code></a></h4><p>Replaces text inside a file.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">gsub_file</span> <span class="s1">'name_of_file.rb'</span><span class="p">,</span> <span class="s1">'method.to_be_replaced'</span><span class="p">,</span> <span class="s1">'method.the_replacing_code'</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b0dc1f3b93cd5ece5cec582ef7320bfa">gsub_file 'name_of_file.rb', 'method.to_be_replaced', 'method.the_replacing_code'
+<textarea class="clipboard-content" id="clipboard-70aceadf3ed2be95620e782f3b2cbfbc">gsub_file 'name_of_file.rb', 'method.to_be_replaced', 'method.the_replacing_code'
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b0dc1f3b93cd5ece5cec582ef7320bfa">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-70aceadf3ed2be95620e782f3b2cbfbc">Copiar</button>
 </div>
 <p>Regular Expressions can be used to make this method more precise. You can also use <code>append_file</code> and <code>prepend_file</code> in the same way to place code at the beginning and end of a file respectively.</p><h4 id="application"><a class="anchorlink" href="#application">10.6 <code>application</code></a></h4><p>Adds a line to <code>config/application.rb</code> directly after the application class definition.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">application</span> <span class="s2">"config.asset_host = 'http://example.com'"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9f43545c8097b0fdcc557163687dd4d4">application "config.asset_host = 'http://example.com'"
+<textarea class="clipboard-content" id="clipboard-b050dcaf95a17559986af10eb3b31dd1">application "config.asset_host = 'http://example.com'"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9f43545c8097b0fdcc557163687dd4d4">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-b050dcaf95a17559986af10eb3b31dd1">Copiar</button>
 </div>
 <p>This method can also take a block:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">application</span> <span class="k">do</span>
   <span class="s2">"config.asset_host = 'http://example.com'"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-03300dfd65ed0ff4e9a6eefc8d25e477">application do
+<textarea class="clipboard-content" id="clipboard-c7d5db0871ee63aa5600f78cfcf0d7f4">application do
   "config.asset_host = 'http://example.com'"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-03300dfd65ed0ff4e9a6eefc8d25e477">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-c7d5db0871ee63aa5600f78cfcf0d7f4">Copiar</button>
 </div>
 <p>Available options are:</p>
 <ul>
@@ -916,11 +916,11 @@ end
   <span class="s2">"config.asset_host = 'http://localhost:3000'"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-65609e1592a80fd2d17e150c44a745fb">application(nil, env: "development") do
+<textarea class="clipboard-content" id="clipboard-6935365a911f238ff2ac5752ba3b7c94">application(nil, env: "development") do
   "config.asset_host = 'http://localhost:3000'"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-65609e1592a80fd2d17e150c44a745fb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-6935365a911f238ff2ac5752ba3b7c94">Copiar</button>
 </div>
 <h4 id="git"><a class="anchorlink" href="#git">10.7 <code>git</code></a></h4><p>Runs the specified git command:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">git</span> <span class="ss">:init</span>
@@ -928,55 +928,55 @@ end
 <span class="n">git</span> <span class="ss">commit: </span><span class="s2">"-m First commit!"</span>
 <span class="n">git</span> <span class="ss">add: </span><span class="s2">"onefile.rb"</span><span class="p">,</span> <span class="ss">rm: </span><span class="s2">"badfile.cxx"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-07d56dbb3d2a3f9350075bb946394aba">git :init
+<textarea class="clipboard-content" id="clipboard-696a27721aa22f93030a81ac990a68d1">git :init
 git add: "."
 git commit: "-m First commit!"
 git add: "onefile.rb", rm: "badfile.cxx"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-07d56dbb3d2a3f9350075bb946394aba">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-696a27721aa22f93030a81ac990a68d1">Copiar</button>
 </div>
 <p>The values of the hash here being the arguments or options passed to the specific git command. As per the final example shown here, multiple git commands can be specified at a time, but the order of their running is not guaranteed to be the same as the order that they were specified in.</p><h4 id="vendor"><a class="anchorlink" href="#vendor">10.8 <code>vendor</code></a></h4><p>Places a file into <code>vendor</code> which contains the specified code.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">vendor</span> <span class="s2">"sekrit.rb"</span><span class="p">,</span> <span class="s1">'#top secret stuff'</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-88f67f4bad62f65a743c5f8a8d143c8b">vendor "sekrit.rb", '#top secret stuff'
+<textarea class="clipboard-content" id="clipboard-9a8b68aa6d37e8f8675195122419b835">vendor "sekrit.rb", '#top secret stuff'
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-88f67f4bad62f65a743c5f8a8d143c8b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9a8b68aa6d37e8f8675195122419b835">Copiar</button>
 </div>
 <p>This method also takes a block:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">vendor</span> <span class="s2">"seeds.rb"</span> <span class="k">do</span>
   <span class="s2">"puts 'in your app, seeding your database'"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9132e5064a07a6c135390860340f88ed">vendor "seeds.rb" do
+<textarea class="clipboard-content" id="clipboard-f9aa203ac0490a3e151808e5820a7882">vendor "seeds.rb" do
   "puts 'in your app, seeding your database'"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9132e5064a07a6c135390860340f88ed">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f9aa203ac0490a3e151808e5820a7882">Copiar</button>
 </div>
 <h4 id="lib"><a class="anchorlink" href="#lib">10.9 <code>lib</code></a></h4><p>Places a file into <code>lib</code> which contains the specified code.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">lib</span> <span class="s2">"special.rb"</span><span class="p">,</span> <span class="s2">"p Rails.root"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-87bd8722ece8b2198170c9d12003a671">lib "special.rb", "p Rails.root"
+<textarea class="clipboard-content" id="clipboard-ef04fa7bce1be3f364b124cc2f13a34b">lib "special.rb", "p Rails.root"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-87bd8722ece8b2198170c9d12003a671">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ef04fa7bce1be3f364b124cc2f13a34b">Copiar</button>
 </div>
 <p>This method also takes a block:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">lib</span> <span class="s2">"super_special.rb"</span> <span class="k">do</span>
   <span class="s2">"puts 'Super special!'"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-fbd3935daa5f9a6291d3eb7594e051bf">lib "super_special.rb" do
+<textarea class="clipboard-content" id="clipboard-fe1588cfdf323e59ffe1b90e9123fe27">lib "super_special.rb" do
   "puts 'Super special!'"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-fbd3935daa5f9a6291d3eb7594e051bf">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fe1588cfdf323e59ffe1b90e9123fe27">Copiar</button>
 </div>
 <h4 id="rakefile"><a class="anchorlink" href="#rakefile">10.10 <code>rakefile</code></a></h4><p>Creates a Rake file in the <code>lib/tasks</code> directory of the application.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">rakefile</span> <span class="s2">"test.rake"</span><span class="p">,</span> <span class="s1">'task(:hello) { puts "Hello, there" }'</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-ec15fb2c2e79a1fbdd9099c7fbfdb08a">rakefile "test.rake", 'task(:hello) { puts "Hello, there" }'
+<textarea class="clipboard-content" id="clipboard-fbe4a73162796d0b97dfec5a8a7dec68">rakefile "test.rake", 'task(:hello) { puts "Hello, there" }'
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-ec15fb2c2e79a1fbdd9099c7fbfdb08a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fbe4a73162796d0b97dfec5a8a7dec68">Copiar</button>
 </div>
 <p>This method also takes a block:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">rakefile</span> <span class="s2">"test.rake"</span> <span class="k">do</span>
@@ -987,7 +987,7 @@ end
   }</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-cc41f8711f2ebfb2c30330a1e1703c44">rakefile "test.rake" do
+<textarea class="clipboard-content" id="clipboard-f43564648b331b0802fffdad16dfd5b5">rakefile "test.rake" do
   %Q{
     task rock: :environment do
       puts "Rockin'"
@@ -995,39 +995,39 @@ end
   }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-cc41f8711f2ebfb2c30330a1e1703c44">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f43564648b331b0802fffdad16dfd5b5">Copiar</button>
 </div>
 <h4 id="initializer"><a class="anchorlink" href="#initializer">10.11 <code>initializer</code></a></h4><p>Creates an initializer in the <code>config/initializers</code> directory of the application:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">initializer</span> <span class="s2">"begin.rb"</span><span class="p">,</span> <span class="s2">"puts 'this is the beginning'"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-4a19632ee85ea258a464a6ec5b95fd0a">initializer "begin.rb", "puts 'this is the beginning'"
+<textarea class="clipboard-content" id="clipboard-1d39d093eff0520a125e30f2cf07f35d">initializer "begin.rb", "puts 'this is the beginning'"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-4a19632ee85ea258a464a6ec5b95fd0a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-1d39d093eff0520a125e30f2cf07f35d">Copiar</button>
 </div>
 <p>This method also takes a block, expected to return a string:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">initializer</span> <span class="s2">"begin.rb"</span> <span class="k">do</span>
   <span class="s2">"puts 'this is the beginning'"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-8deceaf04da78e60c37f439dc12bb5dc">initializer "begin.rb" do
+<textarea class="clipboard-content" id="clipboard-a19a9d15bb3f6d90ab277ffe1ce63a77">initializer "begin.rb" do
   "puts 'this is the beginning'"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8deceaf04da78e60c37f439dc12bb5dc">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-a19a9d15bb3f6d90ab277ffe1ce63a77">Copiar</button>
 </div>
 <h4 id="generate"><a class="anchorlink" href="#generate">10.12 <code>generate</code></a></h4><p>Runs the specified generator where the first argument is the generator name and the remaining arguments are passed directly to the generator.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">generate</span> <span class="s2">"scaffold"</span><span class="p">,</span> <span class="s2">"forums title:string description:text"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-012cfc360dbbc7780f7e592f68c6379c">generate "scaffold", "forums title:string description:text"
+<textarea class="clipboard-content" id="clipboard-cf91849a68ec0894a9ddfec4343b3032">generate "scaffold", "forums title:string description:text"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-012cfc360dbbc7780f7e592f68c6379c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-cf91849a68ec0894a9ddfec4343b3032">Copiar</button>
 </div>
 <h4 id="rake"><a class="anchorlink" href="#rake">10.13 <code>rake</code></a></h4><p>Runs the specified Rake task.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">rake</span> <span class="s2">"db:migrate"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-e1ab49ebbaade580f37ba9b9821c1aae">rake "db:migrate"
+<textarea class="clipboard-content" id="clipboard-9a2de9efd6fdd1d422d4fd5c7f4fabb8">rake "db:migrate"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-e1ab49ebbaade580f37ba9b9821c1aae">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9a2de9efd6fdd1d422d4fd5c7f4fabb8">Copiar</button>
 </div>
 <p>Available options are:</p>
 <ul>
@@ -1039,16 +1039,16 @@ end
 <h4 id="route"><a class="anchorlink" href="#route">10.14 <code>route</code></a></h4><p>Adds text to the <code>config/routes.rb</code> file:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">route</span> <span class="s2">"resources :people"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-5b132aa09304629eb8f97bf4e82515bb">route "resources :people"
+<textarea class="clipboard-content" id="clipboard-804936557256fb53ba677c6e5b251cae">route "resources :people"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-5b132aa09304629eb8f97bf4e82515bb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-804936557256fb53ba677c6e5b251cae">Copiar</button>
 </div>
 <h4 id="readme"><a class="anchorlink" href="#readme">10.15 <code>readme</code></a></h4><p>Output the contents of a file in the template's <code>source_path</code>, usually a README.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">readme</span> <span class="s2">"README"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-73c14e08772ae7516cf0c1cce2cabd5c">readme "README"
+<textarea class="clipboard-content" id="clipboard-392addb7e9f92c7d4b68050e0530e448">readme "README"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-73c14e08772ae7516cf0c1cce2cabd5c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-392addb7e9f92c7d4b68050e0530e448">Copiar</button>
 </div>
 
 

@@ -344,16 +344,16 @@ that <code>bin/rails</code> and <code>bin/rake</code> will automatically take ad
 spring environments.</p><p><strong>Running rake tasks:</strong></p><div class="code_container">
 <pre><code class="highlight plaintext">bin/rake test:models
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-331a7f1f05688c5874dc129af60e1ad8">bin/rake test:models
+<textarea class="clipboard-content" id="clipboard-4f2abb992f635e2e107ca7532cfd0298">bin/rake test:models
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-331a7f1f05688c5874dc129af60e1ad8">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-4f2abb992f635e2e107ca7532cfd0298">Copiar</button>
 </div>
 <p><strong>Running a Rails command:</strong></p><div class="code_container">
 <pre><code class="highlight plaintext">bin/rails console
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-499fc193c4215a969c8e6705dc875d18">bin/rails console
+<textarea class="clipboard-content" id="clipboard-bc007b2ba5bb24650cf12362b40627b0">bin/rails console
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-499fc193c4215a969c8e6705dc875d18">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-bc007b2ba5bb24650cf12362b40627b0">Copiar</button>
 </div>
 <p><strong>Spring introspection:</strong></p><div class="code_container">
 <pre><code class="highlight plaintext">$ bin/spring status
@@ -363,14 +363,14 @@ Spring is running:
  3656 spring app    | my_app | started 23 secs ago | test mode
  3746 spring app    | my_app | started 10 secs ago | development mode
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-bed0709ab238589b00d53a0539f7229b">$ bin/spring status
+<textarea class="clipboard-content" id="clipboard-f8d66b55fd36e5fdcc05798f61c8e7b9">$ bin/spring status
 Spring is running:
 
  1182 spring server | my_app | started 29 mins ago
  3656 spring app    | my_app | started 23 secs ago | test mode
  3746 spring app    | my_app | started 10 secs ago | development mode
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-bed0709ab238589b00d53a0539f7229b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f8d66b55fd36e5fdcc05798f61c8e7b9">Copiar</button>
 </div>
 <p>Have a look at the
 <a href="https://github.com/rails/spring/blob/master/README.md">Spring README</a> to
@@ -383,11 +383,11 @@ For example, with the following <code>config/secrets.yml</code>:</p><div class="
   <span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">3b7cd727ee24e8444053437c36cc66c3</span>
   <span class="na">some_api_key</span><span class="pi">:</span> <span class="s">SOMEKEY</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-de6fb633814a26917277ee68c48969b5">development:
+<textarea class="clipboard-content" id="clipboard-8d41f2c8e2b88b911ece9663a794f26d">development:
   secret_key_base: 3b7cd727ee24e8444053437c36cc66c3
   some_api_key: SOMEKEY
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-de6fb633814a26917277ee68c48969b5">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-8d41f2c8e2b88b911ece9663a794f26d">Copiar</button>
 </div>
 <p><code>Rails.application.secrets.some_api_key</code> returns <code>SOMEKEY</code> in the development
 environment.</p><p>See the <a href="upgrading_ruby_on_rails.html#config-secrets-yml">Upgrading Ruby on Rails</a>
@@ -396,9 +396,9 @@ tablets, and desktop browsers. Variants make it easy.</p><p>The request variant 
 <code>:phone</code>, or <code>:desktop</code>.</p><p>You can set the variant in a <code>before_action</code>:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">request</span><span class="p">.</span><span class="nf">variant</span> <span class="o">=</span> <span class="ss">:tablet</span> <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="nf">user_agent</span> <span class="o">=~</span> <span class="sr">/iPad/</span><span class="err">
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-496d813552686100dce7be9374007ffd">request.variant = :tablet if request.user_agent =~ /iPad/
+<textarea class="clipboard-content" id="clipboard-60e643c1284169db990f87e841b10c33">request.variant = :tablet if request.user_agent =~ /iPad/
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-496d813552686100dce7be9374007ffd">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-60e643c1284169db990f87e841b10c33">Copiar</button>
 </div>
 <p>Respond to variants in the action just like you respond to formats:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
@@ -408,25 +408,25 @@ tablets, and desktop browsers. Variants make it easy.</p><p>The request variant 
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-1683f4fd1c203bd2b2cca0b3169cb60c">respond_to do |format|
+<textarea class="clipboard-content" id="clipboard-7956b1ab22231a468671f68747735fea">respond_to do |format|
   format.html do |html|
     html.tablet # renders app/views/projects/show.html+tablet.erb
     html.phone { extra_setup; render ... }
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-1683f4fd1c203bd2b2cca0b3169cb60c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-7956b1ab22231a468671f68747735fea">Copiar</button>
 </div>
 <p>Provide separate templates for each format and variant:</p><div class="code_container">
 <pre><code class="highlight plaintext">app/views/projects/show.html.erb
 app/views/projects/show.html+tablet.erb
 app/views/projects/show.html+phone.erb
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f5b3f433f39865aa3efcc6076187b494">app/views/projects/show.html.erb
+<textarea class="clipboard-content" id="clipboard-09f6cbc171dd2d42f83c3510a6f134d4">app/views/projects/show.html.erb
 app/views/projects/show.html+tablet.erb
 app/views/projects/show.html+phone.erb
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f5b3f433f39865aa3efcc6076187b494">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-09f6cbc171dd2d42f83c3510a6f134d4">Copiar</button>
 </div>
 <p>You can also simplify the variants definition using the inline syntax:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
@@ -435,13 +435,13 @@ app/views/projects/show.html+phone.erb
   <span class="nb">format</span><span class="p">.</span><span class="nf">html</span><span class="p">.</span><span class="nf">none</span>  <span class="p">{</span> <span class="n">render</span> <span class="s2">"trash"</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-5d2e3260e52683f3dbce1c785165ecd7">respond_to do |format|
+<textarea class="clipboard-content" id="clipboard-c8a473adb96b200b8df0f3b4c7f8743c">respond_to do |format|
   format.js         { render "trash" }
   format.html.phone { redirect_to progress_path }
   format.html.none  { render "trash" }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-5d2e3260e52683f3dbce1c785165ecd7">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-c8a473adb96b200b8df0f3b4c7f8743c">Copiar</button>
 </div>
 <h4 id="action-mailer-previews"><a class="anchorlink" href="#action-mailer-previews">2.4 Action Mailer Previews</a></h4><p>Action Mailer previews provide a way to see how emails look by visiting
 a special URL that renders them.</p><p>You implement a preview class whose methods return the mail object you'd like
@@ -452,13 +452,13 @@ to check:</p><div class="code_container">
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-7675d598c921b20bedae88e80325b808">class NotifierPreview &lt; ActionMailer::Preview
+<textarea class="clipboard-content" id="clipboard-1d1daa702fc57c3e819980665e358562">class NotifierPreview &lt; ActionMailer::Preview
   def welcome
     Notifier.welcome(User.first)
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-7675d598c921b20bedae88e80325b808">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-1d1daa702fc57c3e819980665e358562">Copiar</button>
 </div>
 <p>The preview is available in <a href="http://localhost:3000/rails/mailers/notifier/welcome">http://localhost:3000/rails/mailers/notifier/welcome</a>,
 and a list of them in <a href="http://localhost:3000/rails/mailers">http://localhost:3000/rails/mailers</a>.</p><p>By default, these preview classes live in <code>test/mailers/previews</code>.
@@ -478,7 +478,7 @@ can be queried by name.</p><div class="code_container">
 
 <span class="no">Conversation</span><span class="p">.</span><span class="nf">statuses</span> <span class="c1"># =&gt; { "active" =&gt; 0, "archived" =&gt; 1 }</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-783d4032037f8aa9ed721df60eb7084a">class Conversation &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-ee4f5ac69420225cb5157546c493da75">class Conversation &lt; ActiveRecord::Base
   enum status: [ :active, :archived ]
 end
 
@@ -490,7 +490,7 @@ Conversation.archived # =&gt; Relation for all archived Conversations
 
 Conversation.statuses # =&gt; { "active" =&gt; 0, "archived" =&gt; 1 }
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-783d4032037f8aa9ed721df60eb7084a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ee4f5ac69420225cb5157546c493da75">Copiar</button>
 </div>
 <p>See its
 <a href="http://api.rubyonrails.org/v4.1.0/classes/ActiveRecord/Enum.html">documentation</a>
@@ -505,13 +505,13 @@ message verifier name:</p><div class="code_container">
 <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">message_verifier</span><span class="p">(</span><span class="ss">:remember_me</span><span class="p">).</span><span class="nf">verify</span><span class="p">(</span><span class="n">tampered_token</span><span class="p">)</span>
 <span class="c1"># raises ActiveSupport::MessageVerifier::InvalidSignature</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b8f3f37ce150d4ccf66277c6e4f75617">signed_token = Rails.application.message_verifier(:remember_me).generate(token)
+<textarea class="clipboard-content" id="clipboard-aa43ac6dac8aa3b9e463a2531cabe46e">signed_token = Rails.application.message_verifier(:remember_me).generate(token)
 Rails.application.message_verifier(:remember_me).verify(signed_token) # =&gt; token
 
 Rails.application.message_verifier(:remember_me).verify(tampered_token)
 # raises ActiveSupport::MessageVerifier::InvalidSignature
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b8f3f37ce150d4ccf66277c6e4f75617">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-aa43ac6dac8aa3b9e463a2531cabe46e">Copiar</button>
 </div>
 <h4 id="module-concerning"><a class="anchorlink" href="#module-concerning">2.7 Module#concerning</a></h4><p>A natural, low-ceremony way to separate responsibilities within a class:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Todo</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
@@ -531,7 +531,7 @@ Rails.application.message_verifier(:remember_me).verify(tampered_token)
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-8c89fc361b7dadd608c253f61c412001">class Todo &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-afdf07b8dd00c41cf56e9958fafbc809">class Todo &lt; ActiveRecord::Base
   concerning :EventTracking do
     included do
       has_many :events
@@ -548,7 +548,7 @@ Rails.application.message_verifier(:remember_me).verify(tampered_token)
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8c89fc361b7dadd608c253f61c412001">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-afdf07b8dd00c41cf56e9958fafbc809">Copiar</button>
 </div>
 <p>This example is equivalent to defining a <code>EventTracking</code> module inline,
 extending it with <code>ActiveSupport::Concern</code>, then mixing it in to the

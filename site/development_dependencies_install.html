@@ -291,10 +291,10 @@ build a development box for Ruby on Rails core development.</p><h4 id="install-g
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">git </span>clone https://github.com/rails/rails.git
 <span class="gp">$</span><span class="w"> </span><span class="nb">cd rails</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-719db6d5e871cadf374d8f0fc590dd0b">git clone https://github.com/rails/rails.git
+<textarea class="clipboard-content" id="clipboard-34f5e9bc80f4d1e96e01d4fe485c8cf8">git clone https://github.com/rails/rails.git
 cd rails
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-719db6d5e871cadf374d8f0fc590dd0b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-34f5e9bc80f4d1e96e01d4fe485c8cf8">Copiar</button>
 </div>
 <h4 id="install-additional-tools-and-services"><a class="anchorlink" href="#install-additional-tools-and-services">2.3 Install Additional Tools and Services</a></h4><p>Some Rails tests depend on additional tools that you need to install before running those specific tests.</p><p>Here's the list of each gems' additional dependencies:</p>
 <ul>
@@ -313,24 +313,24 @@ tools for different OSes.</p><h5 id="macos"><a class="anchorlink" href="#macos">
 additional tools.</p><p>To install all run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">brew bundle</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-16d51bf636bed10398f08cfe2d48ca77">brew bundle
+<textarea class="clipboard-content" id="clipboard-722639667a26955aba90d4983564dbb9">brew bundle
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-16d51bf636bed10398f08cfe2d48ca77">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-722639667a26955aba90d4983564dbb9">Copiar</button>
 </div>
 <p>You'll also need to start each of the installed services. To list all
 available services run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">brew </span>services list
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-431c717357eff5b0457cf531ee86dd01">brew services list
+<textarea class="clipboard-content" id="clipboard-5ef41493e5042c8b8cdbb8c0649828f7">brew services list
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-431c717357eff5b0457cf531ee86dd01">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-5ef41493e5042c8b8cdbb8c0649828f7">Copiar</button>
 </div>
 <p>You can then start each of the services one by one like this:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">brew </span>services start mysql
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c53810593556884a6bdeed755fba7072">brew services start mysql
+<textarea class="clipboard-content" id="clipboard-0ef5c035fa8156dba29af0438a663347">brew services start mysql
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c53810593556884a6bdeed755fba7072">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0ef5c035fa8156dba29af0438a663347">Copiar</button>
 </div>
 <p>Replace <code>mysql</code> with the name of the service you want to start.</p><h5 id="ubuntu"><a class="anchorlink" href="#ubuntu">2.3.2 Ubuntu</a></h5><p>To install all run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get update
@@ -344,13 +344,13 @@ available services run:</p><div class="code_container">
 <span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"deb https://dl.yarnpkg.com/debian/ stable main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/yarn.list
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install yarn</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-fd0f68f9ad3b0fced0083fa0dd2f7fca">sudo apt-get update
+<textarea class="clipboard-content" id="clipboard-2eb1849fe35755fe77a8957b74af8f39">sudo apt-get update
 sudo apt-get install sqlite3 libsqlite3-dev
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get install yarn
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-fd0f68f9ad3b0fced0083fa0dd2f7fca">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-2eb1849fe35755fe77a8957b74af8f39">Copiar</button>
 </div>
 <h5 id="fedora-or-centos"><a class="anchorlink" href="#fedora-or-centos">2.3.3 Fedora or CentOS</a></h5><p>To install all run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>sqlite-devel sqlite-libs
@@ -365,23 +365,23 @@ sudo apt-get install yarn
 <span class="gp">$</span><span class="w"> </span>curl <span class="nt">--silent</span> <span class="nt">--location</span> https://dl.yarnpkg.com/rpm/yarn.repo | <span class="nb">sudo tee</span> /etc/yum.repos.d/yarn.repo
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install yarn</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-35a301ee17b5b18ee7107047ec5b35aa">sudo dnf install sqlite-devel sqlite-libs
+<textarea class="clipboard-content" id="clipboard-b5e9ba250fafb55a3e1d989b22f202ac">sudo dnf install sqlite-devel sqlite-libs
 curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-35a301ee17b5b18ee7107047ec5b35aa">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-b5e9ba250fafb55a3e1d989b22f202ac">Copiar</button>
 </div>
 <h5 id="arch-linux"><a class="anchorlink" href="#arch-linux">2.3.4 Arch Linux</a></h5><p>To install all run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>pacman <span class="nt">-S</span> sqlite mariadb libmariadbclient mariadb-clients postgresql postgresql-libs redis memcached imagemagick ffmpeg mupdf mupdf-tools poppler <span class="nb">yarn </span>libxml2
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>mariadb-install-db <span class="nt">--user</span><span class="o">=</span>mysql <span class="nt">--basedir</span><span class="o">=</span>/usr <span class="nt">--datadir</span><span class="o">=</span>/var/lib/mysql
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start redis mariadb memcached
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-6ba91fbf496d7c7f32b49f9cc295396f">sudo pacman -S sqlite mariadb libmariadbclient mariadb-clients postgresql postgresql-libs redis memcached imagemagick ffmpeg mupdf mupdf-tools poppler yarn libxml2
+<textarea class="clipboard-content" id="clipboard-dc3062351da72275db618c4c50e10919">sudo pacman -S sqlite mariadb libmariadbclient mariadb-clients postgresql postgresql-libs redis memcached imagemagick ffmpeg mupdf mupdf-tools poppler yarn libxml2
 sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl start redis mariadb memcached
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-6ba91fbf496d7c7f32b49f9cc295396f">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-dc3062351da72275db618c4c50e10919">Copiar</button>
 </div>
 <div class="note"><p>If you are running Arch Linux, MySQL isn't supported anymore so you will need to
 use MariaDB instead (see <a href="https://www.archlinux.org/news/mariadb-replaces-mysql-in-repositories/">this announcement</a>).</p></div><h5 id="freebsd"><a class="anchorlink" href="#freebsd">2.3.5 FreeBSD</a></h5><p>To install all run:</p><div class="code_container">
@@ -392,8 +392,8 @@ use MariaDB instead (see <a href="https://www.archlinux.org/news/mariadb-replace
     yarn
 </span><span class="gp">#</span><span class="w"> </span>portmaster databases/redis
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-0903bf81d2fc85d80ff0b8c5e1281a5e"></textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0903bf81d2fc85d80ff0b8c5e1281a5e">Copiar</button>
+<textarea class="clipboard-content" id="clipboard-146044a027fcc538cf52155b573df2b1"></textarea>
+<button class="clipboard-button" data-clipboard-target="#clipboard-146044a027fcc538cf52155b573df2b1">Copiar</button>
 </div>
 <p>Or install everything through ports (these packages are located under the
 <code>databases</code> folder).</p><div class="note"><p>If you run into troubles during the installation of MySQL, please see
@@ -409,83 +409,83 @@ required for running Active Record tests.</p><p>In order to be able to run the t
 </span><span class="gp">mysql&gt;</span><span class="w"> </span>GRANT ALL PRIVILEGES ON inexistent_activerecord_unittest.<span class="k">*</span>
 <span class="gp">       to 'rails'@'localhost';</span><span class="w">
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-2e701e6753683a61805cdc7a53ee1543">mysql -uroot -p
+<textarea class="clipboard-content" id="clipboard-83bbe4e6a82e8f499158fd51cd9bc1a5">mysql -uroot -p
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-2e701e6753683a61805cdc7a53ee1543">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-83bbe4e6a82e8f499158fd51cd9bc1a5">Copiar</button>
 </div>
 <p>PostgreSQL's authentication works differently. To setup the development environment
 with your development account, on Linux or BSD, you just have to run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> postgres createuser <span class="nt">--superuser</span> <span class="nv">$USER</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-fce39605dc665854e484a855cce8d4e2">sudo -u postgres createuser --superuser $USER
+<textarea class="clipboard-content" id="clipboard-f9d34033506b9ccdff381c6d38dec5c6">sudo -u postgres createuser --superuser $USER
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-fce39605dc665854e484a855cce8d4e2">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f9d34033506b9ccdff381c6d38dec5c6">Copiar</button>
 </div>
 <p>and for macOS:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>createuser <span class="nt">--superuser</span> <span class="nv">$USER</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9ae51368155e0b603e09237224f80d28">createuser --superuser $USER
+<textarea class="clipboard-content" id="clipboard-ed4d729962fa3a59ac6ccf3b1b785244">createuser --superuser $USER
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9ae51368155e0b603e09237224f80d28">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ed4d729962fa3a59ac6ccf3b1b785244">Copiar</button>
 </div>
 <p>Then, you need to create the test databases for both MySQL and PostgreSQL with:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
 <span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:create
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-14c54d3c4f1d4ceca8f313ccf14d863a">cd activerecord
+<textarea class="clipboard-content" id="clipboard-0fb94136a31d6ad9b21369558b27053e">cd activerecord
 bundle exec rake db:create
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-14c54d3c4f1d4ceca8f313ccf14d863a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0fb94136a31d6ad9b21369558b27053e">Copiar</button>
 </div>
 <div class="note"><p>You'll see the following warning (or localized warning) during activating HStore extension in PostgreSQL 9.1.x or earlier: "WARNING: =&gt; is deprecated as an operator".</p></div><p>You can also create test databases for each database engine separately:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
 <span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:mysql:build
 <span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:postgresql:build
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-1d3e0bd0f9fc48c7b4a16ce8dabe0584">cd activerecord
+<textarea class="clipboard-content" id="clipboard-e203c6fa7203d4cd0b18883a899f6b0e">cd activerecord
 bundle exec rake db:mysql:build
 bundle exec rake db:postgresql:build
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-1d3e0bd0f9fc48c7b4a16ce8dabe0584">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e203c6fa7203d4cd0b18883a899f6b0e">Copiar</button>
 </div>
 <p>and you can drop the databases using:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>activerecord
 <span class="gp">$</span><span class="w"> </span><span class="nb">bundle exec rake </span>db:drop
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-716e2e6205b8ba8cec8e54bcda54798c">cd activerecord
+<textarea class="clipboard-content" id="clipboard-d5d1da7d97ed4b3a08186b2ac675dfa9">cd activerecord
 bundle exec rake db:drop
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-716e2e6205b8ba8cec8e54bcda54798c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d5d1da7d97ed4b3a08186b2ac675dfa9">Copiar</button>
 </div>
 <div class="note"><p>Using the Rake task to create the test databases ensures they have the correct character set and collation.</p></div><p>If you're using another database, check the file <code>activerecord/test/config.yml</code> or <code>activerecord/test/config.example.yml</code> for default connection information. You can edit <code>activerecord/test/config.yml</code> to provide different credentials on your machine if you must, but obviously you should not push any such changes back to Rails.</p><h4 id="install-javascript-dependencies"><a class="anchorlink" href="#install-javascript-dependencies">2.5 Install JavaScript dependencies</a></h4><p>If you installed Yarn, you will need to install the javascript dependencies:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">yarn install</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-2f57792780cf310750ecf7520aea3e4b">yarn install
+<textarea class="clipboard-content" id="clipboard-84a23cd588e570a08199854ce846593a">yarn install
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-2f57792780cf310750ecf7520aea3e4b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-84a23cd588e570a08199854ce846593a">Copiar</button>
 </div>
 <h4 id="install-bundler-gem"><a class="anchorlink" href="#install-bundler-gem">2.6 Install Bundler gem</a></h4><p>Get a recent version of <a href="https://bundler.io/">Bundler</a></p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">gem install </span>bundler
 <span class="gp">$</span><span class="w"> </span><span class="nb">gem </span>update bundler
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f4150523652e6a8ec63ac7e7535fd49e">gem install bundler
+<textarea class="clipboard-content" id="clipboard-0fb24ee863dd4a284176299ec13024db">gem install bundler
 gem update bundler
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f4150523652e6a8ec63ac7e7535fd49e">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0fb24ee863dd4a284176299ec13024db">Copiar</button>
 </div>
 <p>and run:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-a86f3e5e5486d5c45868f18f74f6c8c0">bundle install
+<textarea class="clipboard-content" id="clipboard-07c214eb9fd3a0a6751270f0b12f7485">bundle install
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a86f3e5e5486d5c45868f18f74f6c8c0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-07c214eb9fd3a0a6751270f0b12f7485">Copiar</button>
 </div>
 <p>or:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">bundle install</span> <span class="nt">--without</span> db
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-7befbe336e556aabaabcda5cecfc9438">bundle install --without db
+<textarea class="clipboard-content" id="clipboard-96c7a5eb5b103ca9f0c69e6410c101a8">bundle install --without db
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-7befbe336e556aabaabcda5cecfc9438">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-96c7a5eb5b103ca9f0c69e6410c101a8">Copiar</button>
 </div>
 <p>if you don't need to run Active Record tests.</p><h4 id="contribute-to-rails"><a class="anchorlink" href="#contribute-to-rails">2.7 Contribute to Rails</a></h4><p>After you've setup everything, read how you can start <a href="contributing_to_ruby_on_rails.html#running-an-application-against-your-local-branch">contributing</a>.</p>
 

@@ -345,14 +345,14 @@ banco de dados usando as validações do <em>Active Record</em>.</p><p>Depois de
 <span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">).</span><span class="nf">valid?</span> <span class="c1"># =&gt; true</span>
 <span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span> <span class="c1"># =&gt; false</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-0a0da382da7a20821d931b8f68185955">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-bbfd3feaa4f48fc6195386e1b2aab3d1">class Person &lt; ApplicationRecord
   validates :name, presence: true
 end
 
 Person.create(name: "John Doe").valid? # =&gt; true
 Person.create(name: nil).valid? # =&gt; false
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0a0da382da7a20821d931b8f68185955">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-bbfd3feaa4f48fc6195386e1b2aab3d1">Copiar</button>
 </div>
 <p>Como você pode ver, nossa validação nos deixa saber que nossa <em><code>Person</code></em> não é
 válida sem o atributo <em><code>name</code></em>. A segunda <em><code>Person</code></em> não existirá no banco de dados.</p><p>Antes de entrarmos em maiores detalhes, vamos falar sobre como as validações
@@ -399,10 +399,10 @@ Considere a seguinte classe do <em>Active Record</em>:</p><div class="code_conta
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-e23e32a6ddd81587e4ec400b429ce6d3">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-3885b13aa7ca23d6d5a5c68de5510bad">class Person &lt; ApplicationRecord
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-e23e32a6ddd81587e4ec400b429ce6d3">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3885b13aa7ca23d6d5a5c68de5510bad">Copiar</button>
 </div>
 <p>Podemos ver como ela funciona olhando para o resultado no <code>rails console</code>:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="err">$</span> <span class="n">rails</span> <span class="n">console</span>
@@ -415,7 +415,7 @@ end
 <span class="o">&gt;&gt;</span> <span class="nb">p</span><span class="p">.</span><span class="nf">new_record?</span>
 <span class="o">=&gt;</span> <span class="kp">false</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f53d1b8c08852f78a0ed9a8b6cfc683f">$ rails console
+<textarea class="clipboard-content" id="clipboard-84232edb1e8c63d780036c9a3cc27975">$ rails console
 &gt;&gt; p = Person.new(name: "John Doe")
 =&gt; #&lt;Person id: nil, name: "John Doe", created_at: nil, updated_at: nil&gt;
 &gt;&gt; p.new_record?
@@ -425,7 +425,7 @@ end
 &gt;&gt; p.new_record?
 =&gt; false
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f53d1b8c08852f78a0ed9a8b6cfc683f">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-84232edb1e8c63d780036c9a3cc27975">Copiar</button>
 </div>
 <p>Ao criar e salvar um novo <em>record</em> será enviada uma operação SQL de
 <code>INSERT</code> para o seu banco de dados. Atualizando um registro
@@ -484,14 +484,14 @@ Como dito acima:</p><div class="code_container">
 <span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"John Doe"</span><span class="p">).</span><span class="nf">valid?</span> <span class="c1"># =&gt; true</span>
 <span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span> <span class="c1"># =&gt; false</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-a73e46e09284d861f0071acaadc76dd9">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-7efd30ff633abc0a0810b21a1d292433">class Person &lt; ApplicationRecord
   validates :name, presence: true
 end
 
 Person.create(name: "John Doe").valid? # =&gt; true
 Person.create(name: nil).valid? # =&gt; false
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a73e46e09284d861f0071acaadc76dd9">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-7efd30ff633abc0a0810b21a1d292433">Copiar</button>
 </div>
 <p>Depois do <em>Active Record</em> executar as validações, qualquer erro encontrado
 pode ser acessado através do método de instância <code>errors.messages</code>, que
@@ -528,7 +528,7 @@ ou <code>save</code>.</p><div class="code_container">
 <span class="o">&gt;&gt;</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create!</span>
 <span class="c1"># =&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-50baf43ac0ba371585c3a923c5bd181f">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-d8cf184d7f81319faaedd905d19dfd71">class Person &lt; ApplicationRecord
   validates :name, presence: true
 end
 
@@ -556,7 +556,7 @@ end
 &gt;&gt; Person.create!
 # =&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-50baf43ac0ba371585c3a923c5bd181f">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d8cf184d7f81319faaedd905d19dfd71">Copiar</button>
 </div>
 <p><code>invalid?</code> é simplesmente o inverso de <code>valid?</code>. Desencadeia suas validações e
 retorna <code>true</code> se algum erro for encontrado no objeto, e <code>false</code>
@@ -575,14 +575,14 @@ erros em um determinado atributo do objeto.</p><div class="code_container">
 <span class="o">&gt;&gt;</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">any?</span> <span class="c1"># =&gt; false</span>
 <span class="o">&gt;&gt;</span> <span class="no">Person</span><span class="p">.</span><span class="nf">create</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">any?</span> <span class="c1"># =&gt; true</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-06269050d590e8971bdfc1cb1d2e3e8d">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-70d0202097d43b67b4988d8527e59327">class Person &lt; ApplicationRecord
   validates :name, presence: true
 end
 
 &gt;&gt; Person.new.errors[:name].any? # =&gt; false
 &gt;&gt; Person.create.errors[:name].any? # =&gt; true
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-06269050d590e8971bdfc1cb1d2e3e8d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-70d0202097d43b67b4988d8527e59327">Copiar</button>
 </div>
 <p>Nós vamos cobrir os erros das validações em maior detalhe na seção <a href="#working-with-validation-errors">Trabalhando com
 Erros de Validações</a>.</p><h4 id="resumo-das-validacoes-errors-details"><a class="anchorlink" href="#resumo-das-validacoes-errors-details">1.6 <code>errors.details</code></a></h4><p>Para checar quais validações falharam em um atributo inválido, você pode usar
@@ -596,7 +596,7 @@ com uma chave <code>:error</code> para conseguir o símbolo do validador:</p><di
 <span class="o">&gt;&gt;</span> <span class="n">person</span><span class="p">.</span><span class="nf">valid?</span>
 <span class="o">&gt;&gt;</span> <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">details</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span> <span class="c1"># =&gt; [{error: :blank}]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-ae9733890feb75549f470947f14dc825">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-8c7a80f2a2bf867728f01780993cf30a">class Person &lt; ApplicationRecord
   validates :name, presence: true
 end
 
@@ -604,7 +604,7 @@ end
 &gt;&gt; person.valid?
 &gt;&gt; person.errors.details[:name] # =&gt; [{error: :blank}]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-ae9733890feb75549f470947f14dc825">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-8c7a80f2a2bf867728f01780993cf30a">Copiar</button>
 </div>
 <p>O uso de <code>details</code> juntamente com validadores é tratado na seção
 <a href="#working-with-validation-errors">Trabalhando com Erros de Validações</a>.</p><h3 id="helpers-de-validacao"><a class="anchorlink" href="#helpers-de-validacao">2 Helpers de Validação</a></h3><p>O Active Record oferece vários <em>helpers</em> de validação pré-definidos que você
@@ -627,11 +627,11 @@ ou qualquer conceito similar.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:terms_of_service</span><span class="p">,</span> <span class="ss">acceptance: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d1303d86766241c659d4b7effdcd0522">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-e72e0f3edc3d9db9d902d81ddba9cea6">class Person &lt; ApplicationRecord
   validates :terms_of_service, acceptance: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d1303d86766241c659d4b7effdcd0522">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e72e0f3edc3d9db9d902d81ddba9cea6">Copiar</button>
 </div>
 <p>Essa verificação só é feita se <code>terms_of_service</code> não é <code>nil</code>.
 A mensagem padrão de erro para esse <em>helper</em> é <em>"must be accepted"</em>.
@@ -640,11 +640,11 @@ Você também pode passar uma mensagem customizada com a opção de <code>messag
   <span class="n">validates</span> <span class="ss">:terms_of_service</span><span class="p">,</span> <span class="ss">acceptance: </span><span class="p">{</span> <span class="ss">message: </span><span class="s1">'must be abided'</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f8d1814ebe4de66049b77ff1e16a333b">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-73c8839e1a82ef4c18aa8370d3876e2d">class Person &lt; ApplicationRecord
   validates :terms_of_service, acceptance: { message: 'must be abided' }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f8d1814ebe4de66049b77ff1e16a333b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-73c8839e1a82ef4c18aa8370d3876e2d">Copiar</button>
 </div>
 <p>O método também pode receber uma opção de <code>:accept</code>, que determina os valores
 que serão considerados como aceito. Ele tem como padrão os valores <code>['1', true]</code>
@@ -654,12 +654,12 @@ e pode ser facilmente mudado.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:eula</span><span class="p">,</span> <span class="ss">acceptance: </span><span class="p">{</span> <span class="ss">accept: </span><span class="p">[</span><span class="s1">'TRUE'</span><span class="p">,</span> <span class="s1">'accepted'</span><span class="p">]</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-da9f15d985fc578b7b51c6910e7f8886">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-810cb9254acd44974574fb189b9ed724">class Person &lt; ApplicationRecord
   validates :terms_of_service, acceptance: { accept: 'yes' }
   validates :eula, acceptance: { accept: ['TRUE', 'accepted'] }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-da9f15d985fc578b7b51c6910e7f8886">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-810cb9254acd44974574fb189b9ed724">Copiar</button>
 </div>
 <p>Essa validação é bem específica para aplicações web e a "aceitação" não precisa
 ser gravada em lugar nenhum do seu banco de dados. Se você não tem um campo para
@@ -673,12 +673,12 @@ modelos que também precisam ser validados. Quando você tentar salvar seu objet
   <span class="n">validates_associated</span> <span class="ss">:books</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-0b44264c723489e48bd63d391472b409">class Library &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-0656dacf1ca6421972816a692fc880ab">class Library &lt; ApplicationRecord
   has_many :books
   validates_associated :books
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0b44264c723489e48bd63d391472b409">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0656dacf1ca6421972816a692fc880ab">Copiar</button>
 </div>
 <p>Essa validação funcionará com todos os tipos de associação.</p><div class="warning"><p>Não utilize <code>validates_associated</code> nos dois lados de suas associações.
 Eles vão chamar umas as outras em um loop infinito.</p></div><p>A mensagem padrão de erro para <code>validates_associated</code> é <em>"is invalid"</em>. Repare
@@ -691,20 +691,20 @@ nome é o nome do atributo que deve ser confirmado com "_confirmation" anexado.<
   <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-95697ca79ba51df5d65496002f26c553">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-a2eae1695d97ed4f8eeffa999c933864">class Person &lt; ApplicationRecord
   validates :email, confirmation: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-95697ca79ba51df5d65496002f26c553">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-a2eae1695d97ed4f8eeffa999c933864">Copiar</button>
 </div>
 <p>No seu <em>template</em> de <em>view</em> você pode utilizar algo como</p><div class="code_container">
 <pre><code class="highlight erb"><span class="cp">&lt;%=</span> <span class="n">text_field</span> <span class="ss">:person</span><span class="p">,</span> <span class="ss">:email</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%=</span> <span class="n">text_field</span> <span class="ss">:person</span><span class="p">,</span> <span class="ss">:email_confirmation</span> <span class="cp">%&gt;</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-47b33ec52017fa0eb0ab754b2d76ae7d">&lt;%= text_field :person, :email %&gt;
+<textarea class="clipboard-content" id="clipboard-e655ff4dc2331bdb889ad725dfe645d1">&lt;%= text_field :person, :email %&gt;
 &lt;%= text_field :person, :email_confirmation %&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-47b33ec52017fa0eb0ab754b2d76ae7d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e655ff4dc2331bdb889ad725dfe645d1">Copiar</button>
 </div>
 <p>This check is performed only if <code>email_confirmation</code> is not <code>nil</code>. To require
 confirmation, make sure to add a presence check for the confirmation attribute
@@ -716,12 +716,12 @@ atributo de confirmação (nós iremos ver <code>presence</code> em breve nesse 
   <span class="n">validates</span> <span class="ss">:email_confirmation</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-66036dd3c53ddd4b6809d26492b240ea">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-ec6f9dcf43da049c4fe108d26c1fb47f">class Person &lt; ApplicationRecord
   validates :email, confirmation: true
   validates :email_confirmation, presence: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-66036dd3c53ddd4b6809d26492b240ea">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ec6f9dcf43da049c4fe108d26c1fb47f">Copiar</button>
 </div>
 <p>Também existe a opção <code>:case_sensitive</code> caso você queira definir se a restrição
 de confirmação deve ser sensível a letras maiúsculas e minúsculas. Essa opção
@@ -730,11 +730,11 @@ por padrão é verdadeira.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="p">{</span> <span class="ss">case_sensitive: </span><span class="kp">false</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-2387872ece64f80798dda31d8c42cb63">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-500eb9275fb88db8370a45dfcd94415c">class Person &lt; ApplicationRecord
   validates :email, confirmation: { case_sensitive: false }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-2387872ece64f80798dda31d8c42cb63">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-500eb9275fb88db8370a45dfcd94415c">Copiar</button>
 </div>
 <p>A mensagem padrão de erro para esse <em>helper</em> é <em>"doesn't match confirmation"</em>.</p><h4 id="exclusion"><a class="anchorlink" href="#exclusion">2.4 <code>exclusion</code></a></h4><p>Esse <em>helper</em> valida os atributos que não estão incluídos em uma coleção. Na
 verdade, essa coleção pode ser qualquer objeto enumerável.</p><div class="code_container">
@@ -743,12 +743,12 @@ verdade, essa coleção pode ser qualquer objeto enumerável.</p><div class="cod
     <span class="ss">message: </span><span class="s2">"%{value} is reserved."</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-95930f29b3e30654fe7823ae3b878fe9">class Account &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-4cb7f1dd6cda2eccd2365cea04484178">class Account &lt; ApplicationRecord
   validates :subdomain, exclusion: { in: %w(www us ca jp),
     message: "%{value} is reserved." }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-95930f29b3e30654fe7823ae3b878fe9">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-4cb7f1dd6cda2eccd2365cea04484178">Copiar</button>
 </div>
 <p>O <em>helper</em> de <code>exclusion</code> tem a opção <code>:in</code> que recebe uma coleção de valores
 que não serão aceitas para os atributos validados. A opção <code>:in</code> tem um atalho
@@ -762,12 +762,12 @@ expressão regular dada, que é especificada com a opção <code>:with</code>.</
     </span><span class="sr">mess</span><span class="ss">age: </span><span class="s2">"only allows letters"</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b81cf51e56adc4fcbdd06237e11176fd">class Product &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-726a16b39b047c61827b51d04c0251e7">class Product &lt; ApplicationRecord
   validates :legacy_code, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b81cf51e56adc4fcbdd06237e11176fd">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-726a16b39b047c61827b51d04c0251e7">Copiar</button>
 </div>
 <p>Alternativamente, você pode requerer que um atributo específico <em>não</em>
 corresponde com a expressão regular usando a opção <code>:without</code>.</p><p>A mensagem de erro padrão é <em>"is invalid"</em>.</p><h4 id="inclusion"><a class="anchorlink" href="#inclusion">2.6 <code>inclusion</code></a></h4><p>Esse <em>helper</em> valida os atributos que estão incluídos em uma coleção. Na
@@ -777,12 +777,12 @@ verdade, essa coleção pode ser qualquer objeto enumerável.</p><div class="cod
     <span class="ss">message: </span><span class="s2">"%{value} is not a valid size"</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d4a2118fda65916503cc40c8e4744098">class Coffee &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-48d3548bbd6ae2e07ed65244ff744610">class Coffee &lt; ApplicationRecord
   validates :size, inclusion: { in: %w(small medium large),
     message: "%{value} is not a valid size" }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d4a2118fda65916503cc40c8e4744098">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-48d3548bbd6ae2e07ed65244ff744610">Copiar</button>
 </div>
 <p>O <em>helper</em> de <code>inclusion</code> tem a opção <code>:in</code> que recebe uma coleção de valores
 que serão aceitas para os atributos validados. A opção <code>:in</code> tem um atalho
@@ -799,14 +799,14 @@ maneiras diferentes.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:registration_number</span><span class="p">,</span> <span class="ss">length: </span><span class="p">{</span> <span class="ss">is: </span><span class="mi">6</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f0788185e894ab48afe7581488743cbb">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-f31ca5e9794663a2db9b74d703838c33">class Person &lt; ApplicationRecord
   validates :name, length: { minimum: 2 }
   validates :bio, length: { maximum: 500 }
   validates :password, length: { in: 6..20 }
   validates :registration_number, length: { is: 6 }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f0788185e894ab48afe7581488743cbb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f31ca5e9794663a2db9b74d703838c33">Copiar</button>
 </div>
 <p>The possible length constraint options are:</p><p>As possíveis opções de restrições de tamanho são:</p>
 <ul>
@@ -830,12 +830,12 @@ utilizar a opção <code>:message</code> para especificar uma mensagem de erro.<
     <span class="ss">too_long: </span><span class="s2">"%{count} characters is the maximum allowed"</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-ae6557b163e829a0f005256daa36082a">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-6828a0ff03074b4ddbcfad1965ec7dd2">class Person &lt; ApplicationRecord
   validates :bio, length: { maximum: 1000,
     too_long: "%{count} characters is the maximum allowed" }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-ae6557b163e829a0f005256daa36082a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-6828a0ff03074b4ddbcfad1965ec7dd2">Copiar</button>
 </div>
 <p>Note that the default error messages are plural (e.g., "is too short (minimum
 is %{count} characters)"). For this reason, when <code>:minimum</code> is 1 you should
@@ -852,9 +852,9 @@ opcional de negativo ou positivo (+ ou -). Para especificar que somente números
 inteiros são permitidos mude <code>:only_integer</code> para verdadeiro.</p><p>Se você mudar <code>:only_integer</code> para <code>verdadeiro</code>, então ele vai usar</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="sr">/\A[+-]?\d+\z/</span><span class="err">
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-0d1c136d9d44005d7a52806026a4dbab">/\A[+-]?\d+\z/
+<textarea class="clipboard-content" id="clipboard-56a0ebbac8de68d8f3e6fd443ee01004">/\A[+-]?\d+\z/
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0d1c136d9d44005d7a52806026a4dbab">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-56a0ebbac8de68d8f3e6fd443ee01004">Copiar</button>
 </div>
 <p>como expressão regular para validar o valor do atributo. Se não, ele vai tentar
 converter o valor para um número usando a classe <code>Float</code>.</p><div class="code_container">
@@ -863,12 +863,12 @@ converter o valor para um número usando a classe <code>Float</code>.</p><div cl
   <span class="n">validates</span> <span class="ss">:games_played</span><span class="p">,</span> <span class="ss">numericality: </span><span class="p">{</span> <span class="ss">only_integer: </span><span class="kp">true</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c7060abc268d7761878a634f981fe49d">class Player &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-e4f6ed1da430d1031866577c518a5e66">class Player &lt; ApplicationRecord
   validates :points, numericality: true
   validates :games_played, numericality: { only_integer: true }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c7060abc268d7761878a634f981fe49d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e4f6ed1da430d1031866577c518a5e66">Copiar</button>
 </div>
 <p>Além de <code>:only_integer</code>, esse <em>helper</em> também aceita as seguintes opções para
 adicionar restrições aos valores aceitáveis:</p>
@@ -908,11 +908,11 @@ isso é, uma <em>string</em> que está vazia ou só contém espaços.</p><div cl
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-466fb6c2a5dc9edb32afc5b400f939cf">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-5af59c666c02284fddb0c60e25e70459">class Person &lt; ApplicationRecord
   validates :name, :login, :email, presence: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-466fb6c2a5dc9edb32afc5b400f939cf">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-5af59c666c02284fddb0c60e25e70459">Copiar</button>
 </div>
 <p>Se você quer ter certeza que uma associação está presente, você precisará testar
 se o objeto associado por ele mesmo está presente, e não a chave estrangeira
@@ -923,12 +923,12 @@ estrangeira existe como também se o objeto referenciado existe.</p><div class="
   <span class="n">validates</span> <span class="ss">:order</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-e97003bc660f39a04ca2e837a5c62a5f">class LineItem &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-3700cd3631e8d5a946f36bf5fae7d766">class LineItem &lt; ApplicationRecord
   belongs_to :order
   validates :order, presence: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-e97003bc660f39a04ca2e837a5c62a5f">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3700cd3631e8d5a946f36bf5fae7d766">Copiar</button>
 </div>
 <p>Para validar registros associados cuja presença é necessária, você deve
 especificar a opção <code>:inverse_of</code> para a associação:</p><div class="code_container">
@@ -936,11 +936,11 @@ especificar a opção <code>:inverse_of</code> para a associação:</p><div clas
   <span class="n">has_many</span> <span class="ss">:line_items</span><span class="p">,</span> <span class="ss">inverse_of: :order</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-3dae65a150f981a9f861f425dd8e9daa">class Order &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-9727c893de9c4607d00e66cb8ce2d489">class Order &lt; ApplicationRecord
   has_many :line_items, inverse_of: :order
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-3dae65a150f981a9f861f425dd8e9daa">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9727c893de9c4607d00e66cb8ce2d489">Copiar</button>
 </div>
 <p>Se você validar a presença de um objeto associado através de um relacionamento
 <code>has_one</code> ou<code>has_many</code>, ele verificará se o objeto não está <code>blank?</code> nem
@@ -949,10 +949,10 @@ booleano no campo, você deve usar uma das seguintes validações:</p><div class
 <pre><code class="highlight ruby"><span class="n">validates</span> <span class="ss">:boolean_field_name</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="p">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">]</span> <span class="p">}</span>
 <span class="n">validates</span> <span class="ss">:boolean_field_name</span><span class="p">,</span> <span class="ss">exclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="p">[</span><span class="kp">nil</span><span class="p">]</span> <span class="p">}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c63bcf6f2798bfe6a229fa6e19febb70">validates :boolean_field_name, inclusion: { in: [true, false] }
+<textarea class="clipboard-content" id="clipboard-fa01b4c11824d509fd7dd7721e96f4d5">validates :boolean_field_name, inclusion: { in: [true, false] }
 validates :boolean_field_name, exclusion: { in: [nil] }
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c63bcf6f2798bfe6a229fa6e19febb70">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fa01b4c11824d509fd7dd7721e96f4d5">Copiar</button>
 </div>
 <p>Ao usar uma dessas validações, você garantirá que o valor NÃO será <code>nil</code>
 o que resultaria em um valor <code>NULL</code> na maioria dos casos.</p><h4 id="absence"><a class="anchorlink" href="#absence">2.10 <code>absence</code></a></h4><p>Este <em>helper</em> valida que os atributos especificados estão ausentes. Ele usa o
@@ -962,11 +962,11 @@ branco, isso é, uma <em>string</em> que está vazia ou só contém caracteres e
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">absence: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-97142f7cd94158c9df37f7e22aa796f6">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-7a8a58937c08881b26c32c78ba05c3d3">class Person &lt; ApplicationRecord
   validates :name, :login, :email, absence: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-97142f7cd94158c9df37f7e22aa796f6">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-7a8a58937c08881b26c32c78ba05c3d3">Copiar</button>
 </div>
 <p>Se você quer ter certeza que uma associação está ausente, você precisará testar
 se o objeto associado por ele mesmo está ausente, e não a chave estrangeira
@@ -976,12 +976,12 @@ utilizada para mapear a associação.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:order</span><span class="p">,</span> <span class="ss">absence: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-7943a56cb31270d2e1a7d6ca77b4f61b">class LineItem &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-ed8bf452eb12cbed82880d46d44f931c">class LineItem &lt; ApplicationRecord
   belongs_to :order
   validates :order, absence: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-7943a56cb31270d2e1a7d6ca77b4f61b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ed8bf452eb12cbed82880d46d44f931c">Copiar</button>
 </div>
 <p>Para validar registros associados cuja ausência é necessária, você deve
 especificar a opção <code>:inverse_of</code> para a associação:</p><div class="code_container">
@@ -989,11 +989,11 @@ especificar a opção <code>:inverse_of</code> para a associação:</p><div clas
   <span class="n">has_many</span> <span class="ss">:line_items</span><span class="p">,</span> <span class="ss">inverse_of: :order</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c297c8b5f1f756ab6d6d88f00329e8dd">class Order &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-3a730e4bdbc49c53c497931da5c04feb">class Order &lt; ApplicationRecord
   has_many :line_items, inverse_of: :order
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c297c8b5f1f756ab6d6d88f00329e8dd">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3a730e4bdbc49c53c497931da5c04feb">Copiar</button>
 </div>
 <p>Se você validar a ausência de um objeto associado através de um relacionamento
 <code>has_one</code> ou<code>has_many</code>, ele verificará se o objeto não está <code>present?</code> nem
@@ -1009,11 +1009,11 @@ de dados.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b1a3bdc06dae03523d113b558198ca4b">class Account &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-59e5a86044b8fc1550be5ba223a99522">class Account &lt; ApplicationRecord
   validates :email, uniqueness: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b1a3bdc06dae03523d113b558198ca4b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-59e5a86044b8fc1550be5ba223a99522">Copiar</button>
 </div>
 <p>A validação ocorre executando uma consulta SQL na tabela do modelo, procurando
 um registro existente com o mesmo valor nesse atributo.</p><p>Existe uma opção <code>:scope</code> que você pode usar para especificar um ou mais
@@ -1023,12 +1023,12 @@ atributos usados para limitar a verificação de exclusividade:</p><div class="c
     <span class="ss">message: </span><span class="s2">"should happen once per year"</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d62456854e49a4b11820569a75a9d7a0">class Holiday &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-ff4875f3045963dd6afbdb1785598cfc">class Holiday &lt; ApplicationRecord
   validates :name, uniqueness: { scope: :year,
     message: "should happen once per year" }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d62456854e49a4b11820569a75a9d7a0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ff4875f3045963dd6afbdb1785598cfc">Copiar</button>
 </div>
 <p>Should you wish to create a database constraint to prevent possible violations of a uniqueness validation using the <code>:scope</code> option, you must create a unique index on both columns in your database. See <a href="https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html">the MySQL manual</a> for more details about multiple column indexes or <a href="https://www.postgresql.org/docs/current/static/ddl-constraints.html">the PostgreSQL manual</a> for examples of unique constraints that refer to a group of columns.</p><p>Se você deseja criar uma restrição no banco de dados para previnir possiveis
 violações em uma validação de exclusividade usando a opção de <code>:scope</code>, você
@@ -1043,11 +1043,11 @@ O padrão desta opção é <em>true</em>.</p><div class="code_container">
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="p">{</span> <span class="ss">case_sensitive: </span><span class="kp">false</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d37a4c310724536f102e84e1ce75b728">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-48feb76279a6704574bd3e277c1d2c10">class Person &lt; ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d37a4c310724536f102e84e1ce75b728">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-48feb76279a6704574bd3e277c1d2c10">Copiar</button>
 </div>
 <div class="warning"><p>Observe que alguns bancos de dados estão configurados para executar
 pesquisas que não diferenciam maiúsculas de minúsculas.</p></div><p>A mensagem de erro padrão é <em>"has already been taken"</em>.</p><h4 id="validates-with"><a class="anchorlink" href="#validates-with">2.12 <code>validates_with</code></a></h4><p>Esse <em>helper</em> passa o registro para uma classe separada para ser feita a validação.</p><div class="code_container">
@@ -1063,7 +1063,7 @@ pesquisas que não diferenciam maiúsculas de minúsculas.</p></div><p>A mensage
   <span class="n">validates_with</span> <span class="no">GoodnessValidator</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c4d1aefa492cae533e677522225a455d">class GoodnessValidator &lt; ActiveModel::Validator
+<textarea class="clipboard-content" id="clipboard-086a3d88b46dfb7f43eff9e8e0cb1540">class GoodnessValidator &lt; ActiveModel::Validator
   def validate(record)
     if record.first_name == "Evil"
       record.errors[:base] &lt;&lt; "This person is evil"
@@ -1075,7 +1075,7 @@ class Person &lt; ApplicationRecord
   validates_with GoodnessValidator
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c4d1aefa492cae533e677522225a455d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-086a3d88b46dfb7f43eff9e8e0cb1540">Copiar</button>
 </div>
 <div class="note"><p>Os erros adicionados ao <code>record.errors[:base]</code> estão relacionados ao
 estado do registro como um todo, e não a um atributo específico.</p></div><p>O <em>helper</em> <code>validates_with</code> pega uma classe ou uma lista de classes para usar
@@ -1098,7 +1098,7 @@ para a classe validadora como <code>options</code>:</p><div class="code_containe
   <span class="n">validates_with</span> <span class="no">GoodnessValidator</span><span class="p">,</span> <span class="ss">fields: </span><span class="p">[</span><span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span><span class="p">]</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-3bb230f8d096bf430e15a4cdd6664b27">class GoodnessValidator &lt; ActiveModel::Validator
+<textarea class="clipboard-content" id="clipboard-e22b92bd169abd2d8f442942ad7d4a4e">class GoodnessValidator &lt; ActiveModel::Validator
   def validate(record)
     if options[:fields].any?{|field| record.send(field) == "Evil" }
       record.errors[:base] &lt;&lt; "This person is evil"
@@ -1110,7 +1110,7 @@ class Person &lt; ApplicationRecord
   validates_with GoodnessValidator, fields: [:first_name, :last_name]
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-3bb230f8d096bf430e15a4cdd6664b27">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e22b92bd169abd2d8f442942ad7d4a4e">Copiar</button>
 </div>
 <p>Observe que o validador será inicializado <em>apenas uma vez</em> durante todo o ciclo
 de vida do aplicativo, e não em cada execução de validação, portanto, tenha
@@ -1136,7 +1136,7 @@ de instância, você poderá facilmente usar um objeto Ruby puro no lugar:</p><d
   <span class="c1"># ...</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-8232fc992efd0f3da0155c5d2a89a558">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-bb3f92e486a904f3814f67d1778b715a">class Person &lt; ApplicationRecord
   validate do |person|
     GoodnessValidator.new(person).validate
   end
@@ -1156,7 +1156,7 @@ class GoodnessValidator
   # ...
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8232fc992efd0f3da0155c5d2a89a558">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-bb3f92e486a904f3814f67d1778b715a">Copiar</button>
 </div>
 <h4 id="validates-each"><a class="anchorlink" href="#validates-each">2.13 <code>validates_each</code></a></h4><p>Este <em>helper</em> valida atributos em relação a um bloco. Não possui uma função de
 validação predefinida. Você deve criar um usando um bloco, e todos os atributos
@@ -1168,13 +1168,13 @@ não queremos que nomes e sobrenomes comecem com letras minúsculas.</p><div cla
   </span><span class="sr">en</span><span class="n">d</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-e54e20e8ee919d9b043a172853cee8a7">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-da1af19f927262fedb385b3eb88be8b1">class Person &lt; ApplicationRecord
   validates_each :name, :surname do |record, attr, value|
     record.errors.add(attr, 'must start with upper case') if value =~ /\A[[:lower:]]/
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-e54e20e8ee919d9b043a172853cee8a7">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-da1af19f927262fedb385b3eb88be8b1">Copiar</button>
 </div>
 <p>O bloco recebe o registro, o nome do atributo e o valor do atributo. Você pode
 fazer o que quiser para verificar dados válidos dentro do bloco. Se sua
@@ -1186,12 +1186,12 @@ tornando-o inválido.</p><h3 id="opcoes-de-validacao-comuns"><a class="anchorlin
     <span class="ss">message: </span><span class="s2">"%{value} is not a valid size"</span> <span class="p">},</span> <span class="ss">allow_nil: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c4829438bf1faa3e99173b89815f8b35">class Coffee &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-4754b724908e7ae15936a94cf8d2d3a1">class Coffee &lt; ApplicationRecord
   validates :size, inclusion: { in: %w(small medium large),
     message: "%{value} is not a valid size" }, allow_nil: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c4829438bf1faa3e99173b89815f8b35">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-4754b724908e7ae15936a94cf8d2d3a1">Copiar</button>
 </div>
 <p>Para opções completas para argumento de mensagem, consulte
 <a href="#mensagem">documentação de mensagem</a>.</p><h4 id="allow-blank"><a class="anchorlink" href="#allow-blank">3.2 <code>:allow_blank</code></a></h4><p>A opção <code>:allow_blank</code> é semelhante à opção <code>:allow_nil</code>. Esta opção
@@ -1204,14 +1204,14 @@ deixará a validação passar se o valor do atributo for <code>blank?</code>,
 <span class="no">Topic</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">title: </span><span class="s2">""</span><span class="p">).</span><span class="nf">valid?</span>  <span class="c1"># =&gt; true</span>
 <span class="no">Topic</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">title: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">valid?</span> <span class="c1"># =&gt; true</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f636c9a32ed2b1e6ad2a719544b2f201">class Topic &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-06859d8565740c4c75d90313e944564c">class Topic &lt; ApplicationRecord
   validates :title, length: { is: 5 }, allow_blank: true
 end
 
 Topic.create(title: "").valid?  # =&gt; true
 Topic.create(title: nil).valid? # =&gt; true
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f636c9a32ed2b1e6ad2a719544b2f201">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-06859d8565740c4c75d90313e944564c">Copiar</button>
 </div>
 <h4 id="message"><a class="anchorlink" href="#message">3.3 <code>:message</code></a></h4><p>Como você já viu, a opção <code>:message</code> permite que você especifique a mensagem que
 será adicionada à coleção <code>errors</code> quando a validação falhar. Quando esta
@@ -1241,7 +1241,7 @@ uma <em>hash</em> com os pares de chave-valor <code>:model</code>, <code>:attrib
     <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-956d5342e2eee0a65c6b3db9ae85bf2c">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-b89bc3397b3691506d4805886d8cc983">class Person &lt; ApplicationRecord
   # Hard-coded message
   validates :name, presence: { message: "must be given please" }
 
@@ -1261,7 +1261,7 @@ uma <em>hash</em> com os pares de chave-valor <code>:model</code>, <code>:attrib
     }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-956d5342e2eee0a65c6b3db9ae85bf2c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-b89bc3397b3691506d4805886d8cc983">Copiar</button>
 </div>
 <h4 id="on"><a class="anchorlink" href="#on">3.4 <code>:on</code></a></h4><p>A opção <code>:on</code> permite que você especifique quando a validação deve acontecer. O
 comportamento padrão para todos os <em>helpers</em> de validação integrados é ser executado
@@ -1280,7 +1280,7 @@ novo registro é criado ou <code>on: :update</code> para rodar a validação ape
   <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-1104af2e686b4d441cc8c9c2245b5b0e">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-3963d39816b16b93666161a009195586">class Person &lt; ApplicationRecord
   # it will be possible to update email with a duplicated value
   validates :email, uniqueness: true, on: :create
 
@@ -1291,7 +1291,7 @@ novo registro é criado ou <code>on: :update</code> para rodar a validação ape
   validates :name, presence: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-1104af2e686b4d441cc8c9c2245b5b0e">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3963d39816b16b93666161a009195586">Copiar</button>
 </div>
 <p>Você também pode usar <code>on:</code> para definir contextos customizados. O contexto
 customizado precisa ser acionado explicitamente passando o nome do contexto para
@@ -1307,7 +1307,7 @@ customizado precisa ser acionado explicitamente passando o nome do contexto para
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span>
  <span class="c1"># =&gt; {:email=&gt;["has already been taken"], :age=&gt;["is not a number"]}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-8f9d53dbe8e1a167af1de82e4b4bf1a0">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-235dd6b549c6391ca2f822a8afa73df4">class Person &lt; ApplicationRecord
   validates :email, uniqueness: true, on: :account_setup
   validates :age, numericality: true, on: :account_setup
 end
@@ -1318,7 +1318,7 @@ person.valid?(:account_setup) # =&gt; false
 person.errors.messages
  # =&gt; {:email=&gt;["has already been taken"], :age=&gt;["is not a number"]}
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8f9d53dbe8e1a167af1de82e4b4bf1a0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-235dd6b549c6391ca2f822a8afa73df4">Copiar</button>
 </div>
 <p><code>person.valid?(:account_setup)</code> executa ambas as validações sem salvar
 o <em>model</em>. <code>person.save(context: :account_setup)</code> valida <code>person</code> no
@@ -1335,7 +1335,7 @@ esse contexto, assim como quaisquer validações <em>sem</em> um contexto.</p><d
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span>
  <span class="c1"># =&gt; {:email=&gt;["has already been taken"], :age=&gt;["is not a number"], :name=&gt;["can't be blank"]}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f94a023facf5e4997152f4b40f9fcad0">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-17bd15ad8e8eb7c67248a627fb698ea6">class Person &lt; ApplicationRecord
   validates :email, uniqueness: true, on: :account_setup
   validates :age, numericality: true, on: :account_setup
   validates :name, presence: true
@@ -1346,7 +1346,7 @@ person.valid?(:account_setup) # =&gt; false
 person.errors.messages
  # =&gt; {:email=&gt;["has already been taken"], :age=&gt;["is not a number"], :name=&gt;["can't be blank"]}
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f94a023facf5e4997152f4b40f9fcad0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-17bd15ad8e8eb7c67248a627fb698ea6">Copiar</button>
 </div>
 <h3 id="validacoes-estritas"><a class="anchorlink" href="#validacoes-estritas">4 Validações Estritas</a></h3><p>Você também pode especificar validações como estritas e lançar um
 <code>ActiveModel::StrictValidationFailed</code> quando o objeto é inválido.</p><div class="code_container">
@@ -1356,13 +1356,13 @@ person.errors.messages
 
 <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">valid?</span>  <span class="c1"># =&gt; ActiveModel::StrictValidationFailed: Name can't be blank</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d48769c310e29557d96650eecd409d9c">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-5136b206830d73a8a06aaa4d543d9232">class Person &lt; ApplicationRecord
   validates :name, presence: { strict: true }
 end
 
 Person.new.valid?  # =&gt; ActiveModel::StrictValidationFailed: Name can't be blank
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d48769c310e29557d96650eecd409d9c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-5136b206830d73a8a06aaa4d543d9232">Copiar</button>
 </div>
 <p>Também é possível passar uma exceção personalizada para a opção <code>:strict</code>.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -1371,13 +1371,13 @@ Person.new.valid?  # =&gt; ActiveModel::StrictValidationFailed: Name can't be bl
 
 <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">valid?</span>  <span class="c1"># =&gt; TokenGenerationException: Token can't be blank</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-3fea72246b518ab9e6db4dd91efcc162">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-7310bc2a30c4542fa565c299f834979d">class Person &lt; ApplicationRecord
   validates :token, presence: true, uniqueness: true, strict: TokenGenerationException
 end
 
 Person.new.valid?  # =&gt; TokenGenerationException: Token can't be blank
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-3fea72246b518ab9e6db4dd91efcc162">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-7310bc2a30c4542fa565c299f834979d">Copiar</button>
 </div>
 <h3 id="validacao-com-condicional"><a class="anchorlink" href="#validacao-com-condicional">5 Validação com Condicional</a></h3><p>Às vezes fará sentido validar um objeto apenas quando uma determinada condição for satisfeita.
 Você pode fazer isso usando <code>:if</code> e <code>:unless</code>, que podem ser usados como um <em>symbol</em>,
@@ -1394,7 +1394,7 @@ Essa é a opção mais usada.</p><div class="code_container">
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-3e898d8cdc8c81110b22d59f7557c7d0">class Order &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-d1e39fc4b43c89d37eedf4bfd062341b">class Order &lt; ApplicationRecord
   validates :card_number, presence: true, if: :paid_with_card?
 
   def paid_with_card?
@@ -1402,7 +1402,7 @@ Essa é a opção mais usada.</p><div class="code_container">
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-3e898d8cdc8c81110b22d59f7557c7d0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d1e39fc4b43c89d37eedf4bfd062341b">Copiar</button>
 </div>
 <h4 id="usando-uma-proc-com-if-e-unless"><a class="anchorlink" href="#usando-uma-proc-com-if-e-unless">5.2 Usando uma <em>Proc</em> com <code>:if</code> e <code>:unless</code></a></h4><p>É possível associar <code>:if</code> e <code>:unless</code> com um objeto <code>Proc</code> que será chamado.
 O uso de um objeto <code>Proc</code> permite escrever uma condição em apenas uma linha
@@ -1412,19 +1412,19 @@ ao invés de em um método separado.</p><div class="code_container">
     <span class="ss">unless: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="p">.</span><span class="nf">password</span><span class="p">.</span><span class="nf">blank?</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-118726c1366b3dcd28d463ee530a9777">class Account &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-89d85fdda495af34a90638321d5904bc">class Account &lt; ApplicationRecord
   validates :password, confirmation: true,
     unless: Proc.new { |a| a.password.blank? }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-118726c1366b3dcd28d463ee530a9777">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-89d85fdda495af34a90638321d5904bc">Copiar</button>
 </div>
 <p>Como as <code>Lambdas</code> são tipos de <code>Proc</code>, elas também podem ser usadas para escrever condições em apenas uma linha de forma mais curta.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">confirmation: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">unless: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">password</span><span class="p">.</span><span class="nf">blank?</span> <span class="p">}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-7c2c64bd8683e3a1607a8a70011f4f8d">validates :password, confirmation: true, unless: -&gt; { password.blank? }
+<textarea class="clipboard-content" id="clipboard-3d03f23f121337d405c73d4ac4ba444a">validates :password, confirmation: true, unless: -&gt; { password.blank? }
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-7c2c64bd8683e3a1607a8a70011f4f8d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3d03f23f121337d405c73d4ac4ba444a">Copiar</button>
 </div>
 <h4 id="agrupando-validacoes-com-condicionais"><a class="anchorlink" href="#agrupando-validacoes-com-condicionais">5.3 Agrupando Validações com Condicionais</a></h4><p>Às vezes, é útil ter várias validações usando a mesma condição.
 Isso pode ser feito facilmente usando  <code>with_options</code>.</p><div class="code_container">
@@ -1435,14 +1435,14 @@ Isso pode ser feito facilmente usando  <code>with_options</code>.</p><div class=
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-de2c98c5ca6adfa6cdcab4cbb645ca57">class User &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-9ccbf4c2e891dffc7a840665516a2e56">class User &lt; ApplicationRecord
   with_options if: :is_admin? do |admin|
     admin.validates :password, length: { minimum: 10 }
     admin.validates :email, presence: true
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-de2c98c5ca6adfa6cdcab4cbb645ca57">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9ccbf4c2e891dffc7a840665516a2e56">Copiar</button>
 </div>
 <p>Todas as validações dentro do bloco <code>with_options</code> terão automaticamente passado a condição <code>if: :is_admin?</code></p><h4 id="combinando-validacoes-com-condicionais"><a class="anchorlink" href="#combinando-validacoes-com-condicionais">5.4 Combinando Validações com Condicionais</a></h4><p>Por outro lado, quando várias condições definem se uma validação deve ou não acontecer,
 podemos usar um <code>Array</code>. Além disso, você pode usar ambos <code>:if</code> e <code>:unless</code> para a mesma validação.</p><div class="code_container">
@@ -1452,13 +1452,13 @@ podemos usar um <code>Array</code>. Além disso, você pode usar ambos <code>:if
                     <span class="ss">unless: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="n">c</span><span class="p">.</span><span class="nf">trackpad</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-dd565fe76115f3fbf17e87996e6434fb">class Computer &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-fd9aa9f104e599896b1dc78902220475">class Computer &lt; ApplicationRecord
   validates :mouse, presence: true,
                     if: [Proc.new { |c| c.market.retail? }, :desktop?],
                     unless: Proc.new { |c| c.trackpad.present? }
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-dd565fe76115f3fbf17e87996e6434fb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-fd9aa9f104e599896b1dc78902220475">Copiar</button>
 </div>
 <p>A validação é executada apenas quando todas as condições <code>:if</code>
 e nenhuma das condições <code>:unless</code> resultarem em <code>true</code>.</p><h3 id="realizando-validacoes-customizadas"><a class="anchorlink" href="#realizando-validacoes-customizadas">6 Realizando Validações Customizadas</a></h3><p>Quando os <em>helpers</em> de validação embutidos não são o bastante para suas necessidades, você pode
@@ -1479,7 +1479,7 @@ método <code>validates_with</code>.</p><div class="code_container">
   <span class="n">validates_with</span> <span class="no">MyValidator</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-8f7ae1e4ba227fac5580aff0a672c8b7">class MyValidator &lt; ActiveModel::Validator
+<textarea class="clipboard-content" id="clipboard-d42503c84e48cbb714b9013e77a21b5a">class MyValidator &lt; ActiveModel::Validator
   def validate(record)
     unless record.name.starts_with? 'X'
       record.errors[:name] &lt;&lt; 'Need a name starting with X please!'
@@ -1492,7 +1492,7 @@ class Person
   validates_with MyValidator
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-8f7ae1e4ba227fac5580aff0a672c8b7">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d42503c84e48cbb714b9013e77a21b5a">Copiar</button>
 </div>
 <p>A maneira mais fácil de adicionar validadores customizados para atributos individuais
 é com a conveniente classe <code>ActiveModel::EachValidator</code>. Nesse caso, a classe validadora
@@ -1511,7 +1511,7 @@ a ser validado e ao valor do atributo na instância recebida.</p><div class="cod
   <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">email: </span><span class="kp">true</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-a8b761075ca479e429c5d2ec361f1b2d">class EmailValidator &lt; ActiveModel::EachValidator
+<textarea class="clipboard-content" id="clipboard-9fe55837dbba3a373086bcd23b9c9c5f">class EmailValidator &lt; ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       record.errors[attribute] &lt;&lt; (options[:message] || "is not an email")
@@ -1523,7 +1523,7 @@ class Person &lt; ApplicationRecord
   validates :email, presence: true, email: true
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a8b761075ca479e429c5d2ec361f1b2d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9fe55837dbba3a373086bcd23b9c9c5f">Copiar</button>
 </div>
 <p>Como mostrado no exemplo acima, você também pode combinar validações padrão com
 seus próprios validadores customizados.</p><h4 id="metodos-customizados"><a class="anchorlink" href="#metodos-customizados">6.2 Métodos Customizados</a></h4><p>Você também pode criar métodos que verificam o estado de seus <em>models</em> e
@@ -1551,7 +1551,7 @@ sendo assim seus métodos de validação customizados devem adicionar erros
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d32f1b8eb20df054ec7e91e2b0c18bcc">class Invoice &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-7ccf1b76424f9cc5e051da3b476d5b03">class Invoice &lt; ApplicationRecord
   validate :expiration_date_cannot_be_in_the_past,
     :discount_cannot_be_greater_than_total_value
 
@@ -1568,7 +1568,7 @@ sendo assim seus métodos de validação customizados devem adicionar erros
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d32f1b8eb20df054ec7e91e2b0c18bcc">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-7ccf1b76424f9cc5e051da3b476d5b03">Copiar</button>
 </div>
 <p>Por padrão, tais validações executarão a cada chamada ao método <code>valid?</code>
 ou ao salvar o objeto. Mas também é possível controlar quando executar essas
@@ -1582,7 +1582,7 @@ com <code>:create</code> ou <code>:update</code>.</p><div class="code_container"
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-277e0f4be01ac41d38806894716c5808">class Invoice &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-dbe2aa08d723e353f9fc5701cb3e1645">class Invoice &lt; ApplicationRecord
   validate :active_customer, on: :create
 
   def active_customer
@@ -1590,7 +1590,7 @@ com <code>:create</code> ou <code>:update</code>.</p><div class="code_container"
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-277e0f4be01ac41d38806894716c5808">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-dbe2aa08d723e353f9fc5701cb3e1645">Copiar</button>
 </div>
 <h3 id="trabalhando-com-erros-de-validacao"><a class="anchorlink" href="#trabalhando-com-erros-de-validacao">7 Trabalhando com Erros de Validação</a></h3><p>Em adição aos métodos <code>valid?</code> e <code>invalid?</code> cobertos anteriormente, o Rails provê outros métodos para trabalhar com a coleção <code>errors</code> e verificar a validade dos objetos.</p><p>A seguir é exibida uma lista dos métodos mais comumente utilizados. Por favor, verifique a documentação do <code>ActiveModel::Errors</code> para uma lista de todos os métodos disponíveis.</p><h4 id="trabalhando-com-erros-de-validacao-errors"><a class="anchorlink" href="#trabalhando-com-erros-de-validacao-errors">7.1 <code>errors</code></a></h4><p>Retorna uma instância da classe <code>ActiveModel::Errors</code> contendo todos os erros. Cada chave é o nome do atributo e o valor é um <em>array</em> de <em>strings</em> contendo todos os erros.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -1606,7 +1606,7 @@ end
 <span class="n">person</span><span class="p">.</span><span class="nf">valid?</span> <span class="c1"># =&gt; true</span>
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">messages</span> <span class="c1"># =&gt; {}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-99f5ed5ff0d371b03e1777bd3889b747">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-f82ce1449306f37ed3df4102106d665a">class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 end
 
@@ -1619,7 +1619,7 @@ person = Person.new(name: "John Doe")
 person.valid? # =&gt; true
 person.errors.messages # =&gt; {}
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-99f5ed5ff0d371b03e1777bd3889b747">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-f82ce1449306f37ed3df4102106d665a">Copiar</button>
 </div>
 <h4 id="errors"><a class="anchorlink" href="#errors">7.2 <code>errors[]</code></a></h4><p><code>errors[]</code> é utilizado quando você quiser verificar as mensagens de erro de um atributo em específico. O método um <em>array</em> de <em>strings</em> com todas as mensagens de erro para o atributo informado, cada <em>string</em> contendo uma mensagem de erro. Se não há erros relacionados com o atributo, o método retorna um <em>array</em> vazio.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -1639,7 +1639,7 @@ person.errors.messages # =&gt; {}
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
  <span class="c1"># =&gt; ["can't be blank", "is too short (minimum is 3 characters)"]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-798302d2e36dc5fec7059e0e117a9e01">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-764efe77eb20f32e646e33137a28038d">class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 end
 
@@ -1656,7 +1656,7 @@ person.valid? # =&gt; false
 person.errors[:name]
  # =&gt; ["can't be blank", "is too short (minimum is 3 characters)"]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-798302d2e36dc5fec7059e0e117a9e01">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-764efe77eb20f32e646e33137a28038d">Copiar</button>
 </div>
 <h4 id="errors-add"><a class="anchorlink" href="#errors-add">7.3 <code>errors.add</code></a></h4><p>O método <code>add</code> permite a você adicionar uma mensagem de erro relacionada a um atributo em particular. Ele recebe como argumentos o atributo e a mensagem de erro.</p><p>O método <code>errors.full_messages</code> (ou seu equivalente, <code>errors.to_a</code>) retorna as mensagens de erro em um formato amigável para o usuário, com o nome do atributo em inicial maiúscula prefixado a cada mensagem, como no exemplo abaixo.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -1673,7 +1673,7 @@ person.errors[:name]
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages</span>
  <span class="c1"># =&gt; ["Name cannot contain the characters !@#%*()_-+="]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d3d1342f948e6cbae86ef9764b36cbae">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-aac7d3330ea47b40c2045118719e248a">class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
     errors.add(:name, "cannot contain the characters !@#%*()_-+=")
   end
@@ -1687,7 +1687,7 @@ person.errors[:name]
 person.errors.full_messages
  # =&gt; ["Name cannot contain the characters !@#%*()_-+="]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d3d1342f948e6cbae86ef9764b36cbae">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-aac7d3330ea47b40c2045118719e248a">Copiar</button>
 </div>
 <h4 id="trabalhando-com-erros-de-validacao-errors-details"><a class="anchorlink" href="#trabalhando-com-erros-de-validacao-errors-details">7.4 <code>errors.details</code></a></h4><p>Você pode especificar um validador (<em>validator</em>) de tipo no <em>hash</em> do detalhamento de erro retornado usando o
 método <code>errors.add</code>.</p><div class="code_container">
@@ -1702,7 +1702,7 @@ método <code>errors.add</code>.</p><div class="code_container">
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">details</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
 <span class="c1"># =&gt; [{error: :invalid_characters}]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c9e4f29f48af60be34f2a9d6b05187a2">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-e7afae5cf40b4fff03cdd033622c4cc4">class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
     errors.add(:name, :invalid_characters)
   end
@@ -1713,7 +1713,7 @@ person = Person.create(name: "!@#")
 person.errors.details[:name]
 # =&gt; [{error: :invalid_characters}]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c9e4f29f48af60be34f2a9d6b05187a2">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e7afae5cf40b4fff03cdd033622c4cc4">Copiar</button>
 </div>
 <p>Para aprimorar o detalhamento de erros para que ele contenha o conjunto dos caracteres não permitidos por exemplo,
 você pode passar chaves adicionais ao <code>errors.add</code>.</p><div class="code_container">
@@ -1728,7 +1728,7 @@ você pode passar chaves adicionais ao <code>errors.add</code>.</p><div class="c
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">details</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
 <span class="c1"># =&gt; [{error: :invalid_characters, not_allowed: "!@#%*()_-+="}]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-6ec823d88f7ae3753c9047c46c4e514d">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-d2317c541d1b7f5027992a3990ee8f86">class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
     errors.add(:name, :invalid_characters, not_allowed: "!@#%*()_-+=")
   end
@@ -1739,7 +1739,7 @@ person = Person.create(name: "!@#")
 person.errors.details[:name]
 # =&gt; [{error: :invalid_characters, not_allowed: "!@#%*()_-+="}]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-6ec823d88f7ae3753c9047c46c4e514d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d2317c541d1b7f5027992a3990ee8f86">Copiar</button>
 </div>
 <p>Todos os validadores (<em>validators</em>)  embutidos no Rails populam o <em>hash</em> de detalhes com o 
 validador (<em>validator</em>)  de tipo correspondente.</p><h4 id="errors-base"><a class="anchorlink" href="#errors-base">7.5 <code>errors[:base]</code></a></h4><p>Voce pode adicionar mensagens de erro relacionadas ao estado do objeto como um todo, ao invés de estarem relacionadas a um atributo em específico. Você pode usar este método quando você quiser dizer que o objeto é inválido, não importando os valores de seus atributos. Sendo o <code>errors[:base]</code> um <em>array</em>, você pode simplesmente adicionar uma <em>string</em> ao método e ela será usada como uma mensagem de erro.</p><div class="code_container">
@@ -1749,13 +1749,13 @@ validador (<em>validator</em>)  de tipo correspondente.</p><h4 id="errors-base">
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-0eb60324a69d31d646660291850f1a08">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-629ce6043e10c4b7b05ca4fbc43a6919">class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
     errors[:base] &lt;&lt; "This person is invalid because ..."
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0eb60324a69d31d646660291850f1a08">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-629ce6043e10c4b7b05ca4fbc43a6919">Copiar</button>
 </div>
 <h4 id="errors-clear"><a class="anchorlink" href="#errors-clear">7.6 <code>errors.clear</code></a></h4><p>O método <code>clear</code> é usado quando você intencionalmente quiser limpar todas as mensagens na coleção <code>errors</code>. É claro que, ao chamar o método <code>errors.clear</code> sobre um objeto inválido, isso não irá torná-lo válido: a coleção <code>errors</code> estará agora vazia, mas a próxima vez que você chamar <code>valid?</code> ou qualquer método que tente salvar esse objeto na base de dados, as validações serão executadas novamente. Se qualquer uma das validações falhar, a coleção <code>errors</code> será preenchida de novo.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -1775,7 +1775,7 @@ end
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
 <span class="c1"># =&gt; ["can't be blank", "is too short (minimum is 3 characters)"]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-1139a5ae1947138880b530fefb3bc7e0">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-36300820d231aefb74078c006925393a">class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 end
 
@@ -1792,7 +1792,7 @@ person.save # =&gt; false
 person.errors[:name]
 # =&gt; ["can't be blank", "is too short (minimum is 3 characters)"]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-1139a5ae1947138880b530fefb3bc7e0">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-36300820d231aefb74078c006925393a">Copiar</button>
 </div>
 <h4 id="errors-size"><a class="anchorlink" href="#errors-size">7.7 <code>errors.size</code></a></h4><p>O método <code>size</code> retorna o número total de mensagens de erro para o objeto.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
@@ -1807,7 +1807,7 @@ person.errors[:name]
 <span class="n">person</span><span class="p">.</span><span class="nf">valid?</span> <span class="c1"># =&gt; true</span>
 <span class="n">person</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">size</span> <span class="c1"># =&gt; 0</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-2f6b99f21a0b3c5dcadaf292003b75f5">class Person &lt; ApplicationRecord
+<textarea class="clipboard-content" id="clipboard-367b94384b27bc68046f82a161dbf3d8">class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 end
 
@@ -1819,7 +1819,7 @@ person = Person.new(name: "Andrea", email: "andrea@example.com")
 person.valid? # =&gt; true
 person.errors.size # =&gt; 0
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-2f6b99f21a0b3c5dcadaf292003b75f5">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-367b94384b27bc68046f82a161dbf3d8">Copiar</button>
 </div>
 <h3 id="exibindo-erros-de-validacao-nas-views"><a class="anchorlink" href="#exibindo-erros-de-validacao-nas-views">8 Exibindo Erros de Validação nas <em>Views</em></a></h3><p>Uma vez criado o <em>model</em> e adicionada as validações, se o <em>model</em> é criado via
 formulário web, você provavelmente quer mostrar uma mensagem de erro quando uma
@@ -1844,7 +1844,7 @@ de <code>_form.html.erb</code> que ele gera, exibindo a lista completa de erros 
   &lt;/</span><span class="err">d</span><span class="sr">i</span><span class="n">v</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9a11ee142cf752e524203e3ba90f1360">&lt;% if @article.errors.any? %&gt;
+<textarea class="clipboard-content" id="clipboard-2596370132a93e0c928909342d8c2f1e">&lt;% if @article.errors.any? %&gt;
   &lt;div id="error_explanation"&gt;
     &lt;h2&gt;&lt;%= pluralize(@article.errors.count, "error") %&gt; prohibited this article from being saved:&lt;/h2&gt;
 
@@ -1856,7 +1856,7 @@ de <code>_form.html.erb</code> que ele gera, exibindo a lista completa de erros 
   &lt;/div&gt;
 &lt;% end %&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9a11ee142cf752e524203e3ba90f1360">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-2596370132a93e0c928909342d8c2f1e">Copiar</button>
 </div>
 <p>Portanto, se você usar os <em>helpers</em> de formulário do Rails para gerar seus
 formulários, quando um erro de validação ocorrer em um campo, isso vai gerar
@@ -1865,11 +1865,11 @@ uma <code>&lt;div&gt;</code> extra ao redor da entrada.</p><div class="code_cont
  &lt;input id="article_title" name="article[title]" size="30" type="text" value=""&gt;
 &lt;/div&gt;
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c7b1ec152a9f305143e153d16c35174e">&lt;div class="field_with_errors"&gt;
+<textarea class="clipboard-content" id="clipboard-ac5e85c7dc3e74092a6e4f05f46b0980">&lt;div class="field_with_errors"&gt;
  &lt;input id="article_title" name="article[title]" size="30" type="text" value=""&gt;
 &lt;/div&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c7b1ec152a9f305143e153d16c35174e">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ac5e85c7dc3e74092a6e4f05f46b0980">Copiar</button>
 </div>
 <p>Você pode definir o estilo desta <em>div</em> como preferir. O <em>scaffold</em>
 padrão que o Rails gera, por exemplo, adiciona essa regra <em>CSS</em>:</p><div class="code_container">
@@ -1879,13 +1879,13 @@ padrão que o Rails gera, por exemplo, adiciona essa regra <em>CSS</em>:</p><div
   display: table;
 }
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-a0cd35dd073b743e3fe34a6e9ab5dbba">.field_with_errors {
+<textarea class="clipboard-content" id="clipboard-90584013e888ab038856c0d193bcc36e">.field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-a0cd35dd073b743e3fe34a6e9ab5dbba">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-90584013e888ab038856c0d193bcc36e">Copiar</button>
 </div>
 <p>Isso significa que qualquer campo com erro termina com 2 <em>pixels</em> de borda vermelha.</p>
 

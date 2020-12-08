@@ -350,24 +350,24 @@ repository on GitHub.</p>
 <span class="c1"># with SQLite, MySQL, and PostgreSQL)</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">auto_explain_threshold_in_seconds</span> <span class="o">=</span> <span class="mf">0.5</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-19d88aa398f36308e4a5073c7152169a"># Raise exception on mass assignment protection for Active Record models
+<textarea class="clipboard-content" id="clipboard-8673c5e8ee3c2c4c069855e1324ab894"># Raise exception on mass assignment protection for Active Record models
 config.active_record.mass_assignment_sanitizer = :strict
 
 # Log the query plan for queries taking more than this (works
 # with SQLite, MySQL, and PostgreSQL)
 config.active_record.auto_explain_threshold_in_seconds = 0.5
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-19d88aa398f36308e4a5073c7152169a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-8673c5e8ee3c2c4c069855e1324ab894">Copiar</button>
 </div>
 <p>The <code>mass_assignment_sanitizer</code> config also needs to be added in <code>config/environments/test.rb</code>:</p>
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="c1"># Raise exception on mass assignment protection for Active Record models</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">mass_assignment_sanitizer</span> <span class="o">=</span> <span class="ss">:strict</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d2c1f94f8ba44e12aff38732e70c4987"># Raise exception on mass assignment protection for Active Record models
+<textarea class="clipboard-content" id="clipboard-150ab6359f0e6cd9142f6bd7936c90c5"># Raise exception on mass assignment protection for Active Record models
 config.active_record.mass_assignment_sanitizer = :strict
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d2c1f94f8ba44e12aff38732e70c4987">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-150ab6359f0e6cd9142f6bd7936c90c5">Copiar</button>
 </div>
 </li>
 </ul>
@@ -378,37 +378,37 @@ config.active_record.mass_assignment_sanitizer = :strict
 <span class="nb">require</span> <span class="s1">'rails/all'</span>
 <span class="nb">require</span> <span class="s1">'rails/engine/commands'</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-f6c49e37ce6369ee600a2b16110c60ae">ENGINE_ROOT = File.expand_path('../..', __FILE__)
+<textarea class="clipboard-content" id="clipboard-bbb4ae9db8be26284a54f26cdc47eade">ENGINE_ROOT = File.expand_path('../..', __FILE__)
 ENGINE_PATH = File.expand_path('../../lib/your_engine_name/engine', __FILE__)
 
 require 'rails/all'
 require 'rails/engine/commands'
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-f6c49e37ce6369ee600a2b16110c60ae">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-bbb4ae9db8be26284a54f26cdc47eade">Copiar</button>
 </div>
 <h3 id="creating-a-rails-3-2-application"><a class="anchorlink" href="#creating-a-rails-3-2-application">2 Creating a Rails 3.2 application</a></h3><div class="code_container">
 <pre><code class="highlight console"><span class="gp">#</span><span class="w"> </span>You should have the <span class="s1">'rails'</span> RubyGem installed
 <span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new myapp
 <span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-beca8af3f1aa275a2aa2f9e64c098ce1">rails new myapp
+<textarea class="clipboard-content" id="clipboard-27d3da45951a7b31e475b314449d5a43">rails new myapp
 cd myapp
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-beca8af3f1aa275a2aa2f9e64c098ce1">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-27d3da45951a7b31e475b314449d5a43">Copiar</button>
 </div>
 <h4 id="vendoring-gems"><a class="anchorlink" href="#vendoring-gems">2.1 Vendoring Gems</a></h4><p>Rails now uses a <code>Gemfile</code> in the application root to determine the gems you require for your application to start. This <code>Gemfile</code> is processed by the <a href="https://github.com/carlhuda/bundler">Bundler</a> gem, which then installs all your dependencies. It can even install all the dependencies locally to your application so that it doesn't depend on the system gems.</p><p>More information: <a href="https://bundler.io/">Bundler homepage</a></p><h4 id="living-on-the-edge"><a class="anchorlink" href="#living-on-the-edge">2.2 Living on the Edge</a></h4><p><code>Bundler</code> and <code>Gemfile</code> makes freezing your Rails application easy as pie with the new dedicated <code>bundle</code> command. If you want to bundle straight from the Git repository, you can pass the <code>--edge</code> flag:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new myapp <span class="nt">--edge</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-53454db60cd04496d7eff270fae784ff">rails new myapp --edge
+<textarea class="clipboard-content" id="clipboard-0ee13ac1bc6af6458192a8430b3bcad7">rails new myapp --edge
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-53454db60cd04496d7eff270fae784ff">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0ee13ac1bc6af6458192a8430b3bcad7">Copiar</button>
 </div>
 <p>If you have a local checkout of the Rails repository and want to generate an application using that, you can pass the <code>--dev</code> flag:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">ruby</span> /path/to/rails/railties/bin/rails new myapp <span class="nt">--dev</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-3c33f093fab2e6797f9883a540923add">ruby /path/to/rails/railties/bin/rails new myapp --dev
+<textarea class="clipboard-content" id="clipboard-61cac3792c91f92a12876ae4671d5004">ruby /path/to/rails/railties/bin/rails new myapp --dev
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-3c33f093fab2e6797f9883a540923add">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-61cac3792c91f92a12876ae4671d5004">Copiar</button>
 </div>
 <h3 id="major-features"><a class="anchorlink" href="#major-features">3 Major Features</a></h3><h4 id="faster-development-mode-routing"><a class="anchorlink" href="#faster-development-mode-routing">3.1 Faster Development Mode &amp; Routing</a></h4><p>Rails 3.2 comes with a development mode that's noticeably faster. Inspired by <a href="https://github.com/paneq/active_reload">Active Reload</a>, Rails reloads classes only when files actually change. The performance gains are dramatic on a larger application. Route recognition also got a bunch faster thanks to the new <a href="https://github.com/rails/journey">Journey</a> engine.</p><h4 id="automatic-query-explains"><a class="anchorlink" href="#automatic-query-explains">3.2 Automatic Query Explains</a></h4><p>Rails 3.2 comes with a nice feature that explains queries generated by Arel by defining an <code>explain</code> method in <code>ActiveRecord::Relation</code>. For example, you can run something like <code>puts Person.active.limit(5).explain</code> and the query Arel produces is explained. This allows to check for the proper indexes and further optimizations.</p><p>Queries that take more than half a second to run are <em>automatically</em> explained in the development mode. This threshold, of course, can be changed.</p><h4 id="tagged-logging"><a class="anchorlink" href="#tagged-logging">3.3 Tagged Logging</a></h4><p>When running a multi-user, multi-account application, it's a great help to be able to filter the log by who did what. TaggedLogging in Active Support helps in doing exactly that by stamping log lines with subdomains, request ids, and anything else to aid debugging such applications.</p><h3 id="documentation"><a class="anchorlink" href="#documentation">4 Documentation</a></h3><p>From Rails 3.2, the Rails guides are available for the Kindle and free Kindle Reading Apps for the iPad, iPhone, Mac, Android, etc.</p><h3 id="railties"><a class="anchorlink" href="#railties">5 Railties</a></h3>
 <ul>
@@ -422,9 +422,9 @@ cd myapp
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="n">config</span><span class="p">.</span><span class="nf">railties_order</span> <span class="o">=</span> <span class="p">[</span><span class="no">Blog</span><span class="o">::</span><span class="no">Engine</span><span class="p">,</span> <span class="ss">:main_app</span><span class="p">,</span> <span class="ss">:all</span><span class="p">]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-aa32b2d8b50e297a87ca1ad75cdf196e">config.railties_order = [Blog::Engine, :main_app, :all]
+<textarea class="clipboard-content" id="clipboard-06ed17d9ed5c134be0adfebf28f1cd7b">config.railties_order = [Blog::Engine, :main_app, :all]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-aa32b2d8b50e297a87ca1ad75cdf196e">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-06ed17d9ed5c134be0adfebf28f1cd7b">Copiar</button>
 </div>
 </li>
 <li><p>Scaffold returns 204 No Content for API requests without content. This makes scaffold work with jQuery out of the box.</p></li>
@@ -437,9 +437,9 @@ cd myapp
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="n">rails</span> <span class="n">g</span> <span class="n">scaffold</span> <span class="no">Post</span> <span class="n">title</span><span class="ss">:string:index</span> <span class="n">author</span><span class="ss">:uniq</span> <span class="n">price</span><span class="ss">:decimal</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-0fdd25ac2c8123ec61390b3273287391">rails g scaffold Post title:string:index author:uniq price:decimal{7,2}
+<textarea class="clipboard-content" id="clipboard-6b3d281055ab904c28fe5d6458d929ee">rails g scaffold Post title:string:index author:uniq price:decimal{7,2}
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-0fdd25ac2c8123ec61390b3273287391">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-6b3d281055ab904c28fe5d6458d929ee">Copiar</button>
 </div>
 <p>will create indexes for <code>title</code> and <code>author</code> with the latter being a unique index. Some types such as decimal accept custom options. In the example, <code>price</code> will be a decimal column with precision and scale set to 7 and 2 respectively.</p>
 </li>
@@ -468,11 +468,11 @@ cd myapp
   <span class="n">layout</span> <span class="s1">'single_car'</span><span class="p">,</span> <span class="ss">:only</span> <span class="o">=&gt;</span> <span class="ss">:show</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-37e61767776a43f1aeb1acd3f9ea1b3c">class CarsController
+<textarea class="clipboard-content" id="clipboard-c492df146d51944378734851e40255d4">class CarsController
   layout 'single_car', :only =&gt; :show
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-37e61767776a43f1aeb1acd3f9ea1b3c">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-c492df146d51944378734851e40255d4">Copiar</button>
 </div>
 <p>Rails will use <code>layouts/single_car</code> when a request comes in <code>:show</code> action, and use <code>layouts/application</code> (or <code>layouts/cars</code>, if exists) when a request comes in for any other actions.</p>
 </li>
@@ -488,11 +488,11 @@ end
 <span class="n">get</span> <span class="ss">:index</span>
 <span class="n">assert_equal</span> <span class="s1">'user@example.com'</span><span class="p">,</span> <span class="n">cookies</span><span class="p">[</span><span class="ss">:email</span><span class="p">]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-682aa7d1f90054ff55cb764cd5f06629">cookies[:email] = 'user@example.com'
+<textarea class="clipboard-content" id="clipboard-719a918c36ba95c58b96a3a36b8b4858">cookies[:email] = 'user@example.com'
 get :index
 assert_equal 'user@example.com', cookies[:email]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-682aa7d1f90054ff55cb764cd5f06629">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-719a918c36ba95c58b96a3a36b8b4858">Copiar</button>
 </div>
 <p>To clear the cookies, use <code>clear</code>.</p>
 <div class="code_container">
@@ -500,11 +500,11 @@ assert_equal 'user@example.com', cookies[:email]
 <span class="n">get</span> <span class="ss">:index</span>
 <span class="n">assert_nil</span> <span class="n">cookies</span><span class="p">[</span><span class="ss">:email</span><span class="p">]</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-809ba18d581242daa5180e0f67ba5854">cookies.clear
+<textarea class="clipboard-content" id="clipboard-e7d5ababa76a5bb472831aeb6f66bc27">cookies.clear
 get :index
 assert_nil cookies[:email]
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-809ba18d581242daa5180e0f67ba5854">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e7d5ababa76a5bb472831aeb6f66bc27">Copiar</button>
 </div>
 <p>We now no longer write out HTTP_COOKIE and the cookie jar is persistent between requests so if you need to manipulate the environment for your test you need to do it before the cookie jar is created.</p>
 </li>
@@ -526,14 +526,14 @@ assert_nil cookies[:email]
 <span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-539e0e7e3728c74bc1eaa388b815e063">class ApplicationController
+<textarea class="clipboard-content" id="clipboard-e278b846551f9c4e51b7a73851a96763">class ApplicationController
   layout "application"
 end
 
 class PostsController &lt; ApplicationController
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-539e0e7e3728c74bc1eaa388b815e063">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e278b846551f9c4e51b7a73851a96763">Copiar</button>
 </div>
 <p>In the example above, <code>PostsController</code> will no longer automatically look up for a posts layout. If you need this functionality you could either remove <code>layout "application"</code> from <code>ApplicationController</code> or explicitly set it to <code>nil</code> in <code>PostsController</code>.</p>
 </li>
@@ -562,11 +562,11 @@ end
   <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">button</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-80421ef435754b25a807b9c051da056a">&lt;%= form_for @post do |f| %&gt;
+<textarea class="clipboard-content" id="clipboard-ac6e9c3342edc0fc99f84a5927e16655">&lt;%= form_for @post do |f| %&gt;
   &lt;%= f.button %&gt;
 &lt;% end %&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-80421ef435754b25a807b9c051da056a">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ac6e9c3342edc0fc99f84a5927e16655">Copiar</button>
 </div>
 </li>
 <li><p>Date helpers accept a new option <code>:use_two_digit_numbers =&gt; true</code>, that renders select boxes for months and days with a leading zero without changing the respective values. For example, this is useful for displaying ISO 8601-style dates such as '2011-08-01'.</p></li>
@@ -578,12 +578,12 @@ end
   <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:version</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-6a5aec0cc42a2dafe61aa873dddd01aa">&lt;%= form_for(@offer, :namespace =&gt; 'namespace') do |f| %&gt;
+<textarea class="clipboard-content" id="clipboard-19745a2911ab3ad2eb835ad1c2ebe00d">&lt;%= form_for(@offer, :namespace =&gt; 'namespace') do |f| %&gt;
   &lt;%= f.label :version, 'Version' %&gt;:
   &lt;%= f.text_field :version %&gt;
 &lt;% end %&gt;
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-6a5aec0cc42a2dafe61aa873dddd01aa">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-19745a2911ab3ad2eb835ad1c2ebe00d">Copiar</button>
 </div>
 </li>
 <li><p>Limit the number of options for <code>select_year</code> to 1000. Pass <code>:max_years_allowed</code> option to set your own limit.</p></li>
@@ -596,13 +596,13 @@ end
   end
 end
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-2d10d76e97a69615d1d219f47a1d5bcf">@items.each do |item|
+<textarea class="clipboard-content" id="clipboard-ed8cde08cb39dbb756d302d4c21c5aca">@items.each do |item|
   content_tag_for(:li, item) do
     Title: &lt;%= item.title %&gt;
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-2d10d76e97a69615d1d219f47a1d5bcf">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-ed8cde08cb39dbb756d302d4c21c5aca">Copiar</button>
 </div>
 <p>You can do this:</p>
 <div class="code_container">
@@ -610,11 +610,11 @@ end
   <span class="no">Title</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= item.title %&gt;
 end
 </span></code></pre>
-<textarea class="clipboard-content" id="clipboard-e697aa496978ee2d458e8abebecbdce7">content_tag_for(:li, @items) do |item|
+<textarea class="clipboard-content" id="clipboard-94b674e9774fb562ef71496df01c2e3d">content_tag_for(:li, @items) do |item|
   Title: &lt;%= item.title %&gt;
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-e697aa496978ee2d458e8abebecbdce7">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-94b674e9774fb562ef71496df01c2e3d">Copiar</button>
 </div>
 </li>
 <li><p>Added <code>font_path</code> helper method that computes the path to a font asset in <code>public/fonts</code>.</p></li>
@@ -645,7 +645,7 @@ end
 <span class="n">u</span><span class="p">.</span><span class="nf">color</span>                          <span class="c1"># Accessor stored attribute</span>
 <span class="n">u</span><span class="p">.</span><span class="nf">settings</span><span class="p">[</span><span class="ss">:country</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Denmark'</span> <span class="c1"># Any attribute, even if not specified with an accessor</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-863f5f77374293d1cd071d6c80b59151">class User &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-eb1e8ab3aeea8cecbd7db583ce6ef77d">class User &lt; ActiveRecord::Base
   store :settings, accessors: [ :color, :homepage ]
 end
 
@@ -653,7 +653,7 @@ u = User.new(color: 'black', homepage: '37signals.com')
 u.color                          # Accessor stored attribute
 u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an accessor
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-863f5f77374293d1cd071d6c80b59151">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-eb1e8ab3aeea8cecbd7db583ce6ef77d">Copiar</button>
 </div>
 </li>
 <li>
@@ -661,9 +661,9 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
 <div class="code_container">
 <pre><code class="highlight plaintext">rake db:migrate SCOPE=blog
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-57d43508cf5ab0b87e23067d25ea0502">rake db:migrate SCOPE=blog
+<textarea class="clipboard-content" id="clipboard-9f139873c3f1e48aca5d481150a4fb35">rake db:migrate SCOPE=blog
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-57d43508cf5ab0b87e23067d25ea0502">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9f139873c3f1e48aca5d481150a4fb35">Copiar</button>
 </div>
 </li>
 <li><p>Migrations copied from engines are now scoped with engine's name, for example <code>01_create_posts.blog.rb</code>.</p></li>
@@ -673,10 +673,10 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
 <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:active</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">).</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span>
 <span class="c1"># SELECT id from clients where active = 1</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-aebc45bf23cf6c3f30fd1ce4afe617cb">Client.where(:active =&gt; true).pluck(:id)
+<textarea class="clipboard-content" id="clipboard-d6c539f94fcedaa0750537ccd93a9082">Client.where(:active =&gt; true).pluck(:id)
 # SELECT id from clients where active = 1
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-aebc45bf23cf6c3f30fd1ce4afe617cb">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d6c539f94fcedaa0750537ccd93a9082">Copiar</button>
 </div>
 </li>
 <li><p>Generated association methods are created within a separate module to allow overriding and composition. For a class named MyModel, the module is named <code>MyModel::GeneratedFeatureMethods</code>. It is included into the model class immediately after the <code>generated_attributes_methods</code> module defined in Active Model, so association methods override attribute methods of the same name.</p></li>
@@ -685,25 +685,25 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="s1">'DISTINCT name'</span><span class="p">)</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-af06c7bfb394bdb4c294a9ac57c3f4e9">Client.select('DISTINCT name')
+<textarea class="clipboard-content" id="clipboard-dd0c0ce14b112c6f0b7b11cbf8463b06">Client.select('DISTINCT name')
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-af06c7bfb394bdb4c294a9ac57c3f4e9">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-dd0c0ce14b112c6f0b7b11cbf8463b06">Copiar</button>
 </div>
 <p>..can be written as:</p>
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">uniq</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-da7afa6ef7d8dab7facec978430486e2">Client.select(:name).uniq
+<textarea class="clipboard-content" id="clipboard-62e8222a666d87c7222800f1b24d6102">Client.select(:name).uniq
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-da7afa6ef7d8dab7facec978430486e2">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-62e8222a666d87c7222800f1b24d6102">Copiar</button>
 </div>
 <p>This also allows you to revert the uniqueness in a relation:</p>
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="no">Client</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">uniq</span><span class="p">.</span><span class="nf">uniq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-783555e6afa1c44d814a45addf1b3250">Client.select(:name).uniq.uniq(false)
+<textarea class="clipboard-content" id="clipboard-eef22fc496a0aa22a10c6198085a4410">Client.select(:name).uniq.uniq(false)
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-783555e6afa1c44d814a45addf1b3250">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-eef22fc496a0aa22a10c6198085a4410">Copiar</button>
 </div>
 </li>
 <li><p>Support index sort order in SQLite, MySQL and PostgreSQL adapters.</p></li>
@@ -712,9 +712,9 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="n">has_many</span> <span class="ss">:clients</span><span class="p">,</span> <span class="ss">:class_name</span> <span class="o">=&gt;</span> <span class="ss">:Client</span> <span class="c1"># Note that the symbol need to be capitalized</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-50c3c116badeaf171ce8c8b3b3d46afc">has_many :clients, :class_name =&gt; :Client # Note that the symbol need to be capitalized
+<textarea class="clipboard-content" id="clipboard-0648e9315009a2e9318374e4586240d2">has_many :clients, :class_name =&gt; :Client # Note that the symbol need to be capitalized
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-50c3c116badeaf171ce8c8b3b3d46afc">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-0648e9315009a2e9318374e4586240d2">Copiar</button>
 </div>
 </li>
 <li><p>In development mode, <code>db:drop</code> also drops the test database in order to be symmetric with <code>db:create</code>.</p></li>
@@ -725,9 +725,9 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:first_name</span> <span class="o">=&gt;</span> <span class="s2">"Scarlett"</span><span class="p">).</span><span class="nf">first_or_create!</span><span class="p">(</span><span class="ss">:last_name</span> <span class="o">=&gt;</span> <span class="s2">"Johansson"</span><span class="p">)</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-d94ac3b10fe1fa30905c7df2a71ef7f9">User.where(:first_name =&gt; "Scarlett").first_or_create!(:last_name =&gt; "Johansson")
+<textarea class="clipboard-content" id="clipboard-8a2f558298f125c0b4405fd7e74c7dc8">User.where(:first_name =&gt; "Scarlett").first_or_create!(:last_name =&gt; "Johansson")
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-d94ac3b10fe1fa30905c7df2a71ef7f9">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-8a2f558298f125c0b4405fd7e74c7dc8">Copiar</button>
 </div>
 </li>
 <li>
@@ -743,7 +743,7 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-10a57b40505b8b2bd28131255cabeef6">class Order &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-a7a4a0b70852426865919f34a80da6c5">class Order &lt; ActiveRecord::Base
   def cancel!
     transaction do
       lock!
@@ -752,7 +752,7 @@ u.settings[:country] = 'Denmark' # Any attribute, even if not specified with an 
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-10a57b40505b8b2bd28131255cabeef6">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-a7a4a0b70852426865919f34a80da6c5">Copiar</button>
 </div>
 <p>as:</p>
 <div class="code_container">
@@ -764,7 +764,7 @@ end
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c3c799b6c00a5d85b90bf04b016ce32e">class Order &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-1ac000335dce48408c7bad20c8749ebd">class Order &lt; ActiveRecord::Base
   def cancel!
     with_lock do
       # ... cancelling logic
@@ -772,7 +772,7 @@ end
   end
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c3c799b6c00a5d85b90bf04b016ce32e">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-1ac000335dce48408c7bad20c8749ebd">Copiar</button>
 </div>
 </li>
 </ul>
@@ -783,9 +783,9 @@ end
 <div class="code_container">
 <pre><code class="highlight ruby"><span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="no">Post</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">}.</span><span class="nf">join</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-c77791c679a81212b087b149a050805b">Thread.new { Post.find(1) }.join
+<textarea class="clipboard-content" id="clipboard-4083643b7819218a7a84f000cdf079b3">Thread.new { Post.find(1) }.join
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-c77791c679a81212b087b149a050805b">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-4083643b7819218a7a84f000cdf079b3">Copiar</button>
 </div>
 <p>It should be changed to close the database connection at the end of the thread:</p>
 <div class="code_container">
@@ -794,12 +794,12 @@ end
   <span class="no">Post</span><span class="p">.</span><span class="nf">connection</span><span class="p">.</span><span class="nf">close</span>
 <span class="p">}.</span><span class="nf">join</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-b1ac89ed6b9ec3617bd1121c3efd1158">Thread.new {
+<textarea class="clipboard-content" id="clipboard-a6a867826e991a1bf86477753c107dc9">Thread.new {
   Post.find(1)
   Post.connection.close
 }.join
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-b1ac89ed6b9ec3617bd1121c3efd1158">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-a6a867826e991a1bf86477753c107dc9">Copiar</button>
 </div>
 <p>Only people who spawn threads in their application code need to worry about this change.</p>
 </li>
@@ -810,11 +810,11 @@ end
   <span class="nb">self</span><span class="p">.</span><span class="nf">table_name</span> <span class="o">=</span> <span class="s2">"project"</span>
 <span class="k">end</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-ada6fc8630668b456688615b9b2bfe59">class Project &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-9d15a796113b7a22ce88bebb237e44f7">class Project &lt; ActiveRecord::Base
   self.table_name = "project"
 end
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-ada6fc8630668b456688615b9b2bfe59">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-9d15a796113b7a22ce88bebb237e44f7">Copiar</button>
 </div>
 <p>Or define your own <code>self.table_name</code> method:</p>
 <div class="code_container">
@@ -827,7 +827,7 @@ end
 <span class="no">Post</span><span class="p">.</span><span class="nf">table_name</span> <span class="c1"># =&gt; "special_posts"</span>
 
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-890c7609fb14387162f679b42ba5b1b5">class Post &lt; ActiveRecord::Base
+<textarea class="clipboard-content" id="clipboard-e1776fbff5184dc39fc4d2921b5c4ece">class Post &lt; ActiveRecord::Base
   def self.table_name
     "special_" + super
   end
@@ -836,7 +836,7 @@ end
 Post.table_name # =&gt; "special_posts"
 
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-890c7609fb14387162f679b42ba5b1b5">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-e1776fbff5184dc39fc4d2921b5c4ece">Copiar</button>
 </div>
 </li>
 </ul>
@@ -871,7 +871,7 @@ Post.table_name # =&gt; "special_posts"
 <span class="no">Logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"BCX"</span><span class="p">)</span> <span class="p">{</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">tagged</span><span class="p">(</span><span class="s2">"Jason"</span><span class="p">)</span> <span class="p">{</span> <span class="no">Logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Stuff"</span> <span class="p">}</span> <span class="p">}</span>
 <span class="c1"># Logs "[BCX] [Jason] Stuff"</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-421851cd5a8f63858606d7c9ad029b92">Logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+<textarea class="clipboard-content" id="clipboard-3db420627dbb4699375aa2c8a6b8b20a">Logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
 
 Logger.tagged("BCX") { Logger.info "Stuff" }
 # Logs "[BCX] Stuff"
@@ -882,7 +882,7 @@ Logger.tagged("BCX", "Jason") { Logger.info "Stuff" }
 Logger.tagged("BCX") { Logger.tagged("Jason") { Logger.info "Stuff" } }
 # Logs "[BCX] [Jason] Stuff"
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-421851cd5a8f63858606d7c9ad029b92">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-3db420627dbb4699375aa2c8a6b8b20a">Copiar</button>
 </div>
 </li>
 <li><p>The <code>beginning_of_week</code> method in <code>Date</code>, <code>Time</code> and <code>DateTime</code> accepts an optional argument representing the day in which the week is assumed to start.</p></li>
@@ -900,10 +900,10 @@ Logger.tagged("BCX") { Logger.tagged("Jason") { Logger.info "Stuff" } }
 <pre><code class="highlight ruby"><span class="no">Event</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:created_at</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">all_week</span><span class="p">)</span>
 <span class="no">Event</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">:created_at</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">all_day</span><span class="p">)</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-9c07654908652b8f8a7f33fe7689860d">Event.where(:created_at =&gt; Time.now.all_week)
+<textarea class="clipboard-content" id="clipboard-68f7d5f6b899f4dab466bac820231b08">Event.where(:created_at =&gt; Time.now.all_week)
 Event.where(:created_at =&gt; Time.now.all_day)
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-9c07654908652b8f8a7f33fe7689860d">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-68f7d5f6b899f4dab466bac820231b08">Copiar</button>
 </div>
 </li>
 <li><p>Added <code>instance_accessor: false</code> as an option to <code>Class#cattr_accessor</code> and friends.</p></li>
@@ -927,11 +927,11 @@ Event.where(:created_at =&gt; Time.now.all_day)
 <span class="n">f</span><span class="p">.</span><span class="nf">sync</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">BufferedLogger</span><span class="p">.</span><span class="nf">new</span> <span class="n">f</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-1aa96208d0eccd9c7a560a827adb29b4">f = File.open('foo.log', 'w')
+<textarea class="clipboard-content" id="clipboard-47b3d43e0cf82cba3e2549e6034b366d">f = File.open('foo.log', 'w')
 f.sync = true
 ActiveSupport::BufferedLogger.new f
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-1aa96208d0eccd9c7a560a827adb29b4">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-47b3d43e0cf82cba3e2549e6034b366d">Copiar</button>
 </div>
 </li>
 <li><p><code>ActiveSupport::BufferedLogger#flush</code> is deprecated. Set sync on your filehandle, or tune your filesystem.</p></li>

@@ -369,9 +369,9 @@ This is useful for creating and serving APIs similar to <a href="https://dev.twi
 that can be used to serve public facing, as well as, for custom applications.</p><p>You can generate a new api Rails app using:</p><div class="code_container">
 <pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">rails </span>new my_api <span class="nt">--api</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-55bde560b1bf5adca9079c3b5cff88ef">rails new my_api --api
+<textarea class="clipboard-content" id="clipboard-692b19b02eb6568bf80e9f0a045f3fa7">rails new my_api --api
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-55bde560b1bf5adca9079c3b5cff88ef">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-692b19b02eb6568bf80e9f0a045f3fa7">Copiar</button>
 </div>
 <p>This will do three main things:</p>
 <ul>
@@ -428,7 +428,7 @@ without having to rely on implementation details or monkey patching.</p><p>Some 
 <span class="n">model</span> <span class="o">=</span> <span class="no">StoreListing</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">field_without_db_column: </span><span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">])</span>
 <span class="n">model</span><span class="p">.</span><span class="nf">attributes</span> <span class="c1"># =&gt; {field_without_db_column: [1, 2, 3]}</span>
 </code></pre>
-<textarea class="clipboard-content" id="clipboard-21b18c524ad85de493abf3f38af741dd">
+<textarea class="clipboard-content" id="clipboard-d3a4b878d721569473886ef9fc6d326f">
 # db/schema.rb
 create_table :store_listings, force: true do |t|
   t.decimal :price_in_cents
@@ -459,7 +459,7 @@ StoreListing.new.my_default_proc # =&gt; 2015-05-30 11:04:48 -0600
 model = StoreListing.new(field_without_db_column: ["1", "2", "3"])
 model.attributes # =&gt; {field_without_db_column: [1, 2, 3]}
 </textarea>
-<button class="clipboard-button" data-clipboard-target="#clipboard-21b18c524ad85de493abf3f38af741dd">Copiar</button>
+<button class="clipboard-button" data-clipboard-target="#clipboard-d3a4b878d721569473886ef9fc6d326f">Copiar</button>
 </div>
 <p><strong>Creating Custom Types:</strong></p><p>You can define your own custom types, as long as they respond
 to the methods defined on the value type. The method <code>deserialize</code> or
